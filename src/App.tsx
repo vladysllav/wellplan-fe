@@ -1,5 +1,6 @@
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import HomePage from '../src/pages/HomePage/HomePage';
 import {AppDispatch, fetchData} from "../src/store/actions/dataActions";
 import "./App.css";
 import {RootState} from "./store/index";
@@ -32,7 +33,8 @@ function App() {
                 <Routes>
                     <Route path="/registration" element={<RegistrationForm/>}/>
                     <Route path="/new" element={<NewPage/>}/>
-                    <Route path="/" element={<Header/>}/>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/header" element={<Header/>}/>
                 </Routes>
             </main>
         </div>
