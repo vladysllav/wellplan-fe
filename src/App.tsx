@@ -6,10 +6,9 @@ import "./App.css";
 import {RootState} from "./store/index";
 import NewPage from "../src/pages/NewPage/NewPage";
 import Header from "../src/pages/Header/Header";
-
 import {Route, Routes} from "react-router-dom";
 import RegistrationForm from "./pages/RegistrationForm/RegistrationForm";
-import Footer from "./pages/Footer/Footer";
+import Footer from "../src/pages/Footer/Footer";
 
 
 
