@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import DoctorCardList from '../../components/DoctorCardList/DoctorCardList';
-import Footer from '../../components/Footer/footer';
+import Footer from '../../pages/Footer/Footer';
 
 const HomePage: React.FC = () => {
     return (
