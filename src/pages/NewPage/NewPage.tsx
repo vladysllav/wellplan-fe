@@ -1,5 +1,5 @@
 import Header from '../Header/Header';
-import Button from '../../components/Button/Button';
+import Button from '../../components/Button/Footer/Button/Button';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import useToggle from '../../hooks/useToggle';
