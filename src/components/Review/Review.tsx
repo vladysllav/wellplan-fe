@@ -1,4 +1,3 @@
-import React from 'react';
 import {ReviewModel} from '../../models/doctor.model';
 
 const Review = ({ review, path = '#' }: { review: ReviewModel, path?: string }) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import Review from '../Review/Review';
 import {DoctorModel} from '../../models/doctor.model';
 import default_avatar from '../../assets/images/default_avatar.png';
