@@ -63,7 +63,7 @@ const NewPage: React.FC = () => {
           <div className="flex flex-col w-72">
             <label htmlFor="password" className="mb-2 font-semibold text-gray-700">Password</label>
             <input 
-              className="border rounded py-2 px-3 focus:border-indigo-500"
+              className=" rounded py-2 px-3 focus:border-indigo-500"
               id="password"
               name="password"
               type="password"
