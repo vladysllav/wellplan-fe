@@ -1,8 +1,10 @@
 import {Link} from 'react-router-dom';
 import DoctorCardList from '../../components/DoctorCardList/DoctorCardList';
+import Footer from '../../pages/Footer/Footer';
 
 const HomePage: React.FC = () => {
     return (
+        <>
         <div className="bg-gray-100 min-h-screen">
             <header className="shadow-md p-6 bg-lime-300">
 
@@ -34,7 +36,10 @@ const HomePage: React.FC = () => {
                     <DoctorCardList/>
                 </div>
             </section>
+            
         </div>
+        <Footer/>
+        </>
     );
 };
 

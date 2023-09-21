@@ -6,9 +6,11 @@ import "./App.css";
 import {RootState} from "./store/index";
 import NewPage from "../src/pages/NewPage/NewPage";
 import Header from "../src/pages/Header/Header";
-
 import {Route, Routes} from "react-router-dom";
 import RegistrationForm from "./pages/RegistrationForm/RegistrationForm";
+import Footer from "../src/pages/Footer/Footer";
+
+
 
 function App() {
     const dispatch = useDispatch<AppDispatch>();
@@ -35,6 +37,7 @@ function App() {
                     <Route path="/new" element={<NewPage/>}/>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/header" element={<Header/>}/>
+                    <Route path="/header" element={<Footer/>}/>
                 </Routes>
             </main>
         </div>
