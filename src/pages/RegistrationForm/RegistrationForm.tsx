@@ -45,13 +45,23 @@ const NewPage: React.FC = () => {
             date_of_birth: yup.date().nullable().required('Required')
         }),
 
-        onSubmit: (values: FormValues) => {
-            if (hasEmptyField(values)) {
-                toast.error('One or more fields are empty. Please fill in all required fields.');
-            } else {
+        onSubmit: async (values) => {
+            try {
+                if (hasEmptyField(values)) {
+                    throw new Error('One or more fields are empty. Please fill in all required fields.');
+                }
+
                 console.log('Form data', values);
+
                 formik.resetForm();
+
                 toast.success('Registration successfully completed!');
+            } catch (error) {
+                if (error instanceof Error) {
+                    toast.error(error.message);
+                } else {
+                    console.error('An unknown error has occurred:', error);
+                }
             }
         }
     });
