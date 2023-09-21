@@ -9,7 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import './RegistrationForm.css'
 
 
- interface FormValues {
+interface FormValues {
+
     firstName: string;
     lastName: string;
     email: string;
@@ -81,8 +82,8 @@ const NewPage: React.FC = () => {
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
                         className="input-field peer border-blue-gray-200 text-blue-gray-700
-                        placeholder-shown:border-blue-gray-200
-                        placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
+                            placeholder-shown:border-blue-gray-200
+                            placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
                         placeholder=" "
                         id="firstName"
                         name="firstName"
@@ -92,20 +93,22 @@ const NewPage: React.FC = () => {
                         value={formik.values.firstName}
                     />
                     <label className="label_field before:content[' '] after:content[' ']
-                    text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
-                    peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                            text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
+                            peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                         First Name
                     </label>
                 </div>
-                {formik.touched.firstName && formik.errors.firstName ? (
-                    <div className="text-red-500">{formik.errors.firstName}</div>
-                ) : null}
+                {
+                    formik.touched.firstName && formik.errors.firstName ? (
+                        <div className="text-red-500">{formik.errors.firstName}</div>
+                    ) : null
+                }
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
                         placeholder=" "
                         className="input-field peer border-blue-gray-200 text-blue-gray-700
-                        placeholder-shown:border-blue-gray-200
-                        placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
+        placeholder-shown:border-blue-gray-200
+        placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
                         id="lastName"
                         name="lastName"
                         type="text"
@@ -114,19 +117,21 @@ const NewPage: React.FC = () => {
                         value={formik.values.lastName}
                     />
                     <label className="label_field before:content[' '] after:content[' ']
-                    text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
-                    peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
+                peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                         Last name
                     </label>
                 </div>
-                {formik.touched.lastName && formik.errors.lastName ? (
-                    <div className="text-red-500">{formik.errors.lastName}</div>
-                ) : null}
+                {
+                    formik.touched.lastName && formik.errors.lastName ? (
+                        <div className="text-red-500">{formik.errors.lastName}</div>
+                    ) : null
+                }
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
                         className="input-field peer border-blue-gray-200 text-blue-gray-700
-                        placeholder-shown:border-blue-gray-200
-                        placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
+                placeholder-shown:border-blue-gray-200
+                placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
                         id="email"
                         name="email"
                         type="email"
@@ -136,14 +141,16 @@ const NewPage: React.FC = () => {
                         value={formik.values.email}
                     />
                     <label className="label_field before:content[' '] after:content[' ']
-                    text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
-                    peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
+                peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                         Email
                     </label>
                 </div>
-                {formik.touched.email && formik.errors.email ? (
-                    <div className="text-red-500">{formik.errors.email}</div>
-                ) : null}
+                {
+                    formik.touched.email && formik.errors.email ? (
+                        <div className="text-red-500">{formik.errors.email}</div>
+                    ) : null
+                }
                 <div className="flex flex-col w-72">
                     <label className="mb-2 font-semibold text-gray-700">User type</label>
                     <div className="flex justify-around">
@@ -177,8 +184,8 @@ const NewPage: React.FC = () => {
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
                         className="input-field peer border-blue-gray-200 text-blue-gray-700
-                        placeholder-shown:border-blue-gray-200
-                        placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
+                            placeholder-shown:border-blue-gray-200
+                            placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
                         placeholder=" "
                         id="password"
                         name="password"
@@ -187,33 +194,38 @@ const NewPage: React.FC = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.password}
                     />
-                    <label className="label_field before:content[' '] after:content[' ']
-                    text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
-                    peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                        Password
-                    </label>
-                </div>
-                {formik.touched.password && formik.errors.password ? (
-                    <div className="text-red-500">{formik.errors.password}</div>
-                ) : null}
-                <div className="flex flex-col w-72">
-                    <label htmlFor="date_of_birth" className="mb-2 font-semibold text-gray-700">Date of Birth</label>
-                    <DatePicker
-                        className="border rounded py-2 px-3 focus:border-indigo-500"
-                        selected={formik.values.date_of_birth}
-                        onChange={(date) => formik.setFieldValue('date_of_birth', date)}
-                        dateFormat="yyyy-MM-dd"
-                        locale="en-US"
-                    />
-                </div>
-                {formik.touched.date_of_birth && formik.errors.date_of_birth ? (
-                    <div className="text-red-500 mt-1">{formik.errors.date_of_birth}</div>
-                ) : null}
-                <div className="mt-4 pb-5">
-                    <Button label="Submit" type="submit"/>
-                </div>
-            </form>
+                        <label className="label_field before:content[' '] after:content[' ']
+                            text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
+                            peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                    Password
+                </label>
         </div>
-    );
+{
+    formik.touched.password && formik.errors.password ? (
+        <div className="text-red-500">{formik.errors.password}</div>
+    ) : null
+}
+    <div className="flex flex-col w-72">
+        <label htmlFor="date_of_birth" className="mb-2 font-semibold text-gray-700">Date of Birth</label>
+        <DatePicker
+            className="border rounded py-2 px-3 focus:border-indigo-500"
+            selected={formik.values.date_of_birth}
+            onChange={(date) => formik.setFieldValue('date_of_birth', date)}
+            dateFormat="yyyy-MM-dd"
+            locale="en-US"
+        />
+    </div>
+{
+    formik.touched.date_of_birth && formik.errors.date_of_birth ? (
+        <div className="text-red-500 mt-1">{formik.errors.date_of_birth}</div>
+    ) : null
+}
+    <div className="mt-4 pb-5">
+        <Button label="Submit" type="submit"/>
+    </div>
+</form>
+</div>
+)
+    ;
 };
 export default NewPage;
