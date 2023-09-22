@@ -225,9 +225,8 @@ const NewPage: React.FC = () => {
                     <Button label="Submit" type="submit"/>
                 </div>
             </form>
-            <Footer/>c d
+            <Footer/>
         </div>
     )
-        ;
 };
 export default NewPage;

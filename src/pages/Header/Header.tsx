@@ -11,10 +11,7 @@ const Header = () => {
   alt="Healthcare logo"
   className="mx-auto max-w-[130px]"
 />
-
-
         </div>
-
         <div className="w-full flex items-center justify-center lg:justify-between">
           <ul
             id="main-menu"
