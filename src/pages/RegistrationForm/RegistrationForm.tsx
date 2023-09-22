@@ -7,6 +7,7 @@ import Button from '../../components/Button/Button';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './RegistrationForm.css'
+import Footer from "../Footer/Footer";
 
 
 interface FormValues {
@@ -107,8 +108,8 @@ const NewPage: React.FC = () => {
                     <input
                         placeholder=" "
                         className="input-field peer border-blue-gray-200 text-blue-gray-700
-        placeholder-shown:border-blue-gray-200
-        placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
+                         placeholder-shown:border-blue-gray-200
+                         placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
                         id="lastName"
                         name="lastName"
                         type="text"
@@ -194,38 +195,39 @@ const NewPage: React.FC = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.password}
                     />
-                        <label className="label_field before:content[' '] after:content[' ']
+                    <label className="label_field before:content[' '] after:content[' ']
                             text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
                             peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                    Password
-                </label>
+                        Password
+                    </label>
+                </div>
+                {
+                    formik.touched.password && formik.errors.password ? (
+                        <div className="text-red-500">{formik.errors.password}</div>
+                    ) : null
+                }
+                <div className="flex flex-col w-72">
+                    <label htmlFor="date_of_birth" className="mb-2 font-semibold text-gray-700">Date of Birth</label>
+                    <DatePicker
+                        className="border rounded py-2 px-3 focus:border-indigo-500"
+                        selected={formik.values.date_of_birth}
+                        onChange={(date) => formik.setFieldValue('date_of_birth', date)}
+                        dateFormat="yyyy-MM-dd"
+                        locale="en-US"
+                    />
+                </div>
+                {
+                    formik.touched.date_of_birth && formik.errors.date_of_birth ? (
+                        <div className="text-red-500 mt-1">{formik.errors.date_of_birth}</div>
+                    ) : null
+                }
+                <div className="mt-4 pb-5">
+                    <Button label="Submit" type="submit"/>
+                </div>
+            </form>
+            <Footer/>
         </div>
-{
-    formik.touched.password && formik.errors.password ? (
-        <div className="text-red-500">{formik.errors.password}</div>
-    ) : null
-}
-    <div className="flex flex-col w-72">
-        <label htmlFor="date_of_birth" className="mb-2 font-semibold text-gray-700">Date of Birth</label>
-        <DatePicker
-            className="border rounded py-2 px-3 focus:border-indigo-500"
-            selected={formik.values.date_of_birth}
-            onChange={(date) => formik.setFieldValue('date_of_birth', date)}
-            dateFormat="yyyy-MM-dd"
-            locale="en-US"
-        />
-    </div>
-{
-    formik.touched.date_of_birth && formik.errors.date_of_birth ? (
-        <div className="text-red-500 mt-1">{formik.errors.date_of_birth}</div>
-    ) : null
-}
-    <div className="mt-4 pb-5">
-        <Button label="Submit" type="submit"/>
-    </div>
-</form>
-</div>
-)
-    ;
+    )
+        ;
 };
 export default NewPage;

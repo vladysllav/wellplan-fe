@@ -9,6 +9,8 @@ import Header from "../src/pages/Header/Header";
 import {Route, Routes} from "react-router-dom";
 import RegistrationForm from "./pages/RegistrationForm/RegistrationForm";
 import Footer from "../src/pages/Footer/Footer";
+import AuthorizationForm from "./pages/AuthorizationForm/AuthorizationForm";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.";
 
 
 
@@ -33,6 +35,8 @@ function App() {
             {/* Define routes */}
             <main>
                 <Routes>
+                    <Route path="/authorization" element={<AuthorizationForm/>}/>
+                    <Route path="/password" element={<ForgotPassword/>}/>
                     <Route path="/registration" element={<RegistrationForm/>}/>
                     <Route path="/new" element={<NewPage/>}/>
                     <Route path="/" element={<HomePage />} />
