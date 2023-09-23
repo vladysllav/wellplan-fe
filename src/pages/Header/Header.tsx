@@ -1,16 +1,18 @@
 import logo from "../../assets/images/logo.png";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <div className="bg-indigo-900 text-white">
       <nav className="mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:px-8">
         <div className="lg:w-1/4 w-full flex items-center justify-center">
-          <img
-            src={logo}
-            alt="Healthcare logo"
-            className="mx-auto"
-            style={{ maxWidth: "130px", height: "auto", margin: "0" }}
-          />
+        <img
+  src={logo}
+  alt="Healthcare logo"
+  className="mx-auto max-w-[130px]"
+/>
+
+
         </div>
 
         <div className="w-full flex items-center justify-center lg:justify-between">
@@ -19,16 +21,17 @@ const Header = () => {
             className="flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6"
           >
             <li className="main-menu-item">
-              <a href="/home">Homepage</a>
+            <Link to="/">Homepage</Link>
             </li>
             <li className="main-menu-item">
-              <a href="/about">About us</a>
+            <Link to="/about">About us</Link>
             </li>
             <li className="main-menu-item">
-              <a href="/profile">Profile</a>
+            <Link to="/profile">Profile</Link>
             </li>
             <li className="main-menu-item">
-              <a href="/services">Services</a>
+            <Link to="/services">Services</Link>
+              
             </li>
           </ul>
         </div>
@@ -41,7 +44,8 @@ const Header = () => {
               color: "#18172B",
               borderRadius: "8px",
             }}
-            onClick={() => (window.location.href = "#")}
+            onClick={() => (window.location.href = "/login")}
+
           >
             Log in
           </button>

@@ -11,6 +11,7 @@ import RegistrationForm from "./pages/RegistrationForm/RegistrationForm";
 import Footer from "../src/pages/Footer/Footer";
 import AuthorizationForm from "./pages/AuthorizationForm/AuthorizationForm";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.";
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
 
 
@@ -38,6 +39,7 @@ function App() {
                     <Route path="/authorization" element={<AuthorizationForm/>}/>
                     <Route path="/password" element={<ForgotPassword/>}/>
                     <Route path="/registration" element={<RegistrationForm/>}/>
+                    <Route path="/about" element={<AboutUsPage/>}/>
                     <Route path="/new" element={<NewPage/>}/>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/header" element={<Header/>}/>
