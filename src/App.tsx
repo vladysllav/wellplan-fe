@@ -38,7 +38,7 @@ function App() {
             <main>
                 <Routes>
                     <Route path="/authorization" element={<AuthorizationForm/>}/>
-                    <Route path="/password" element={<ForgotPassword/>}/>
+                    <Route path="/forgot-password" element={<ForgotPassword/>}/>
                     <Route path="/registration" element={<RegistrationForm/>}/>
                     <Route path="/about" element={<AboutUsPage/>}/>
                     <Route path="/new" element={<NewPage/>}/>

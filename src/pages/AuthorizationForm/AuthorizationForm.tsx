@@ -1,5 +1,4 @@
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+
 import {useFormik} from "formik";
 import * as yup from "yup";
 import {toast, ToastContainer} from "react-toastify";
@@ -39,7 +38,6 @@ const Login: React.FC = () => {
 
     return (
         <div className="min-h-screen">
-            <Header/>
             <div className="my-6 border-t border-gray-200"></div>
             <h2 className="text-2xl mb-4 font-semibold text-blue-700">Login</h2>
             <ToastContainer/>
@@ -96,11 +94,10 @@ const Login: React.FC = () => {
                     <Button label="Submit" type="submit"/>
                     <div>
                         <Link className="text-lg font-semibold text-green-500 hover:text-orange-500"
-                              to="/password">Forgot your password?</Link>
+                              to="/forgot-password">Forgot your password?</Link>
                     </div>
                 </div>
             </form>
-            <Footer/>
         </div>
     )
 }

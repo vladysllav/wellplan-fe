@@ -1,4 +1,4 @@
-import Header from '../Header/Header';
+
 import {useFormik} from "formik";
 import * as yup from "yup";
 import DatePicker from 'react-datepicker';
@@ -7,7 +7,6 @@ import Button from '../../components/Button/Button';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './RegistrationForm.css'
-import Footer from "../Footer/Footer";
 
 
 interface FormValues {
@@ -75,7 +74,6 @@ const NewPage: React.FC = () => {
 
     return (
         <div className="min-h-screen">
-            <Header/>
             <div className="my-6 border-t border-gray-200"></div>
             <h2 className="text-2xl mb-4 font-semibold text-blue-700">Sign up</h2>
             <ToastContainer/>
@@ -225,7 +223,6 @@ const NewPage: React.FC = () => {
                     <Button label="Submit" type="submit"/>
                 </div>
             </form>
-            <Footer/>
         </div>
     )
 };
