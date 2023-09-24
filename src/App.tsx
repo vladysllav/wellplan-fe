@@ -15,7 +15,6 @@ import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
 
 
-
 function App() {
     const dispatch = useDispatch<AppDispatch>();
 
