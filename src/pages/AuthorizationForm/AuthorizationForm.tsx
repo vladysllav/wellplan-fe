@@ -1,10 +1,10 @@
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import {toast, ToastContainer} from "react-toastify";
 import Button from "../../components/Button/Button";
 import {Link, useNavigate} from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 
 
 const Login: React.FC = () => {

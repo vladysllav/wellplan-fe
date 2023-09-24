@@ -1,4 +1,4 @@
-import Header from '../Header/Header';
+import Footer from '../../components/Footer/Footer';
 import {useFormik} from "formik";
 import * as yup from "yup";
 import DatePicker from 'react-datepicker';
@@ -7,8 +7,7 @@ import Button from '../../components/Button/Button';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './RegistrationForm.css'
-import Footer from "../Footer/Footer";
-
+import Header from '../../components/Header/Header';
 
 interface FormValues {
 

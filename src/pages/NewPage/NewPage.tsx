@@ -1,13 +1,13 @@
-import Header from '../Header/Header';
 import Button from '../../components/Button/Button';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import useToggle from '../../hooks/useToggle';
+import Header from '../../components/Header/Header';
 
 const NewPage: React.FC = () => {
   const [isTextVisible, toggleText] = useToggle();
 
-  
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -27,9 +27,9 @@ const NewPage: React.FC = () => {
       <Header />
       <div className="container mx-auto mt-12 p-6 bg-white rounded shadow-md">
         <h1 className="text-3xl mb-4 font-semibold text-indigo-600">Welcome to the New Page</h1>
-        
+
         <Button label={isTextVisible ? 'Hide Text' : 'Show Text'} onClick={toggleText} />
-        
+
         {isTextVisible && (
           <p className="text-lg mt-6 text-gray-700">
             Surprise! Here's the hidden text you've revealed.
@@ -37,16 +37,16 @@ const NewPage: React.FC = () => {
         )}
 
         <p className="text-lg my-6 text-gray-700">
-          Lorem ipsum dolor sit 
+          Lorem ipsum dolor sit
         </p>
-        
+
         <div className="my-6 border-t border-gray-200"></div>
-        
+
         <h2 className="text-2xl mb-4 font-semibold text-green-500">Discover More</h2>
         <form onSubmit={formik.handleSubmit} className="mt-6 space-y-4 flex justify-center flex-col m-auto w-max">
           <div className="flex flex-col w-72">
             <label htmlFor="email" className="mb-2 font-semibold text-gray-700">Email Address</label>
-            <input 
+            <input
               className="border rounded py-2 px-3 focus:border-indigo-500"
               id="email"
               name="email"
@@ -62,7 +62,7 @@ const NewPage: React.FC = () => {
 
           <div className="flex flex-col w-72">
             <label htmlFor="password" className="mb-2 font-semibold text-gray-700">Password</label>
-            <input 
+            <input
               className=" rounded py-2 px-3 focus:border-indigo-500"
               id="password"
               name="password"

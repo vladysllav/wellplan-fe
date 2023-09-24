@@ -5,10 +5,8 @@ import {AppDispatch, fetchData} from "../src/store/actions/dataActions";
 import "./App.css";
 import {RootState} from "./store/index";
 import NewPage from "../src/pages/NewPage/NewPage";
-import Header from "../src/pages/Header/Header";
 import {Route, Routes} from "react-router-dom";
 import RegistrationForm from "./pages/RegistrationForm/RegistrationForm";
-import Footer from "../src/pages/Footer/Footer";
 import AuthorizationForm from "./pages/AuthorizationForm/AuthorizationForm";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
@@ -42,8 +40,6 @@ function App() {
                     <Route path="/about" element={<AboutUsPage/>}/>
                     <Route path="/new" element={<NewPage/>}/>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/header" element={<Header/>}/>
-                    <Route path="/header" element={<Footer/>}/>
                 </Routes>
             </main>
         </div>

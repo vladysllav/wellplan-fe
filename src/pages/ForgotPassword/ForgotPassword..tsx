@@ -1,6 +1,5 @@
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 
 const ForgotPassword: React.FC = () => {
     return (
