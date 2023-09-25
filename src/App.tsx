@@ -13,6 +13,8 @@ import AuthorizationForm from "./pages/AuthorizationForm/AuthorizationForm";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import NewPassword from "./pages/NewPassword/NewPassword";
+import Terms from "./pages/Terms/Terms";
+
 
 
 
@@ -41,11 +43,13 @@ function App() {
                     <Route path="/forgot-password" element={<ForgotPassword/>}/>
                     <Route path="/new-password" element={<NewPassword/>}/>
                     <Route path="/registration" element={<RegistrationForm/>}/>
+                    <Route path="/signin" element={<RegistrationForm/>}/>
                     <Route path="/about" element={<AboutUsPage/>}/>
                     <Route path="/new" element={<NewPage/>}/>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/header" element={<Header/>}/>
                     <Route path="/header" element={<Footer/>}/>
+                    <Route path="/terms" element={<Terms/>}/>
                 </Routes>
             </main>
         </div>
