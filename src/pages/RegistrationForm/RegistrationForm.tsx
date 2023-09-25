@@ -1,4 +1,4 @@
-import Header from '../Header/Header';
+
 import {useFormik} from "formik";
 import * as yup from "yup";
 import DatePicker from 'react-datepicker';
@@ -6,25 +6,17 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Button from '../../components/Button/Button';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './RegistrationForm.css'
+import '../../assets/styles/Tailwind.css'
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import {useNavigate} from "react-router-dom";
 
 
-interface FormValues {
-
-    firstName: string;
-    lastName: string;
-    email: string;
-    userType: string;
-    password: string;
-    date_of_birth: Date | null;
-
-    [key: string]: string | Date | null;
-}
 
 const NewPage: React.FC = () => {
+    const navigate = useNavigate();
 
-    const formik = useFormik<FormValues>({
+    const formik = useFormik({
         initialValues: {
             firstName: '',
             lastName: '',
@@ -41,38 +33,31 @@ const NewPage: React.FC = () => {
                 .max(20, 'Must be 20 characters or less')
                 .required('Required'),
             email: yup.string().email('Invalid email address').required('Required'),
-            password: yup.string().required('Required'),
+            password: yup
+                .string()
+                .required('Required')
+                .min(8, 'Password must be at least 8 characters long')
+                .max(15, 'Password cannot exceed 15 characters')
+                .matches(/^[a-zA-Z0-9]+$/, 'Password cannot contain special characters'),
             userType: yup.string()
                 .oneOf(['admin', 'client'], 'Invalid user type')
                 .required('Required'),
             date_of_birth: yup.date().nullable().required('Required')
         }),
 
-        onSubmit: async (values) => {
-            try {
-                if (hasEmptyField(values)) {
-                    throw new Error('One or more fields are empty. Please fill in all required fields.');
-                }
-
-                console.log('Form data', values);
-
-                formik.resetForm();
-
-                toast.success('Registration successfully completed!');
-            } catch (error) {
-                if (error instanceof Error) {
-                    toast.error(error.message);
-                } else {
-                    console.error('An unknown error has occurred:', error);
-                }
-            }
+        onSubmit: values => {
+            console.log('Form data', values);
+            navigate("/")
         }
     });
-    const hasEmptyField = (values: FormValues) => {
-        const allValues = Object.values(values);
-        return allValues.some(value => !value);
+    const handleButtonClick = () => {
+        if (formik.errors) {
+            toast.error("Please fix the form errors before submitting.");
+        } else {
+            console.log("Form data", formik.values);
+            navigate("/");
+        }
     };
-
     return (
         <div className="min-h-screen">
             <Header/>
@@ -82,9 +67,7 @@ const NewPage: React.FC = () => {
             <form onSubmit={formik.handleSubmit} className="mt-6 space-y-4 flex justify-center flex-col m-auto w-max">
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
-                        className="input-field peer border-blue-gray-200 text-blue-gray-700
-                            placeholder-shown:border-blue-gray-200
-                            placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
+                        className="input-field peer my_input"
                         placeholder=" "
                         id="firstName"
                         name="firstName"
@@ -93,9 +76,7 @@ const NewPage: React.FC = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.firstName}
                     />
-                    <label className="label_field before:content[' '] after:content[' ']
-                            text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
-                            peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                    <label className="label_field my_label">
                         First Name
                     </label>
                 </div>
@@ -107,9 +88,7 @@ const NewPage: React.FC = () => {
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
                         placeholder=" "
-                        className="input-field peer border-blue-gray-200 text-blue-gray-700
-                         placeholder-shown:border-blue-gray-200
-                         placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
+                        className="input-field peer my_input"
                         id="lastName"
                         name="lastName"
                         type="text"
@@ -117,9 +96,7 @@ const NewPage: React.FC = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.lastName}
                     />
-                    <label className="label_field before:content[' '] after:content[' ']
-                text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
-                peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                    <label className="label_field my_label">
                         Last name
                     </label>
                 </div>
@@ -130,9 +107,7 @@ const NewPage: React.FC = () => {
                 }
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
-                        className="input-field peer border-blue-gray-200 text-blue-gray-700
-                placeholder-shown:border-blue-gray-200
-                placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
+                        className="input-field peer my_input"
                         id="email"
                         name="email"
                         type="email"
@@ -141,9 +116,7 @@ const NewPage: React.FC = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.email}
                     />
-                    <label className="label_field before:content[' '] after:content[' ']
-                text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
-                peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                    <label className="label_field my_label">
                         Email
                     </label>
                 </div>
@@ -184,9 +157,7 @@ const NewPage: React.FC = () => {
                 </div>
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
-                        className="input-field peer border-blue-gray-200 text-blue-gray-700
-                            placeholder-shown:border-blue-gray-200
-                            placeholder-shown:border-t-blue-gray-200 disabled:bg-blue-gray-50"
+                        className="input-field peer my_input"
                         placeholder=" "
                         id="password"
                         name="password"
@@ -195,9 +166,7 @@ const NewPage: React.FC = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.password}
                     />
-                    <label className="label_field before:content[' '] after:content[' ']
-                            text-blue-gray-400 before:border-blue-gray-200 after:border-blue-gray-200
-                            peer-placeholder-shown:text-blue-gray-500 peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                    <label className="label_field my_label">
                         Password
                     </label>
                 </div>
@@ -222,12 +191,11 @@ const NewPage: React.FC = () => {
                     ) : null
                 }
                 <div className="mt-4 pb-5">
-                    <Button label="Submit" type="submit"/>
+                    <Button label="Submit" type="submit" onClick={handleButtonClick}/>
                 </div>
             </form>
             <Footer/>
         </div>
     )
-        ;
 };
 export default NewPage;
