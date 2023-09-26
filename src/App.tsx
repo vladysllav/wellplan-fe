@@ -12,6 +12,7 @@ import Footer from "../src/pages/Footer/Footer";
 import AuthorizationForm from "./pages/AuthorizationForm/AuthorizationForm";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import NewPassword from "./pages/NewPassword/NewPassword";
 
 
 
@@ -36,8 +37,9 @@ function App() {
             {/* Define routes */}
             <main>
                 <Routes>
-                    <Route path="/authorization" element={<AuthorizationForm/>}/>
+                    <Route path="/login" element={<AuthorizationForm/>}/>
                     <Route path="/forgot-password" element={<ForgotPassword/>}/>
+                    <Route path="/new-password" element={<NewPassword/>}/>
                     <Route path="/registration" element={<RegistrationForm/>}/>
                     <Route path="/about" element={<AboutUsPage/>}/>
                     <Route path="/new" element={<NewPage/>}/>
