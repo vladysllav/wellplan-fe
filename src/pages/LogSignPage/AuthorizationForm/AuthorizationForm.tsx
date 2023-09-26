@@ -1,7 +1,5 @@
-
 import '../../../assets/styles/Tailwind.css';
 import {useFormik} from "formik";
-import './AuthorizationForm.css';
 import * as yup from "yup";
 import {ToastContainer} from "react-toastify";
 import Button from "../../../components/Button/Button";
@@ -13,8 +11,7 @@ interface FormProps {
     className?: string;
 
 
-  }
-
+}
 
 
 const Login: React.FC<FormProps> = () => {
@@ -39,6 +36,7 @@ const Login: React.FC<FormProps> = () => {
             console.log('Form data', values);
         }
     });
+
 
     const handleFormValidation = useCustomFormValidation(
         "Please fix the form errors before submitting.",
