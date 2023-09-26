@@ -1,5 +1,6 @@
 import Header from "../../pages/Header/Header";
 import Footer from "../../pages/Footer/Footer";
+import ScrollToTopButton from "../../components/Button/ScrollToTopButton";
 
 const Terms = () => {
     return (
@@ -172,7 +173,7 @@ const Terms = () => {
 </ol>
 
 
-
+<ScrollToTopButton />
     </div>
   </section>
   <Footer />
