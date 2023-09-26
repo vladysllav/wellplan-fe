@@ -1,7 +1,13 @@
-import logo from "../../assets/images/logo.png";
-import {Link} from "react-router-dom";
+import logo from '../../assets/images/logo.png';
+import {Link, useNavigate} from 'react-router-dom';
 
 const Header = () => {
+    const navigate = useNavigate();
+
+    const handleLoginClick = () => {
+        navigate('/logSign');
+    };
+
     return (
         <div className="bg-indigo-900 text-white">
             <nav className="mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:px-8">
@@ -11,7 +17,6 @@ const Header = () => {
                         alt="Healthcare logo"
                         className="mx-auto max-w-[130px]"
                     />
-
                 </div>
 
                 <div className="w-full flex items-center justify-center lg:justify-between">
@@ -30,13 +35,11 @@ const Header = () => {
                         </li>
                         <li className="main-menu-item">
                             <Link to="/services">Services</Link>
-
                         </li>
                     </ul>
                 </div>
 
-                <div className="lg:w-1/4 w-full flex gap-4 items-center justify-center lg:justify-end">
-
+                <div className="lg:w-1/4 w-full flex items-center justify-center lg:justify-end">
                     <Link to="/user-profile">
                         <span className="main-menu-item"
                         > {/* TODO get user name and surname */}
@@ -45,14 +48,13 @@ const Header = () => {
                     </Link>
 
                     <button
-                        className="text-base font-semibold h-full leading-8 text-gray-900 bg-F8E8EA rounded-lg py-0 px-4 whitespace-nowrap"
+                        className="ml-2 text-base font-semibold h-full leading-8 text-gray-900 bg-F8E8EA rounded-lg py-0 px-4 whitespace-nowrap"
                         style={{
                             backgroundColor: '#F8E8EA',
                             color: '#18172B',
                             borderRadius: '8px'
                         }}
-                        onClick={() => (window.location.href = '/login')}
-
+                        onClick={handleLoginClick}
                     >
                         Log in
                     </button>
@@ -64,80 +66,135 @@ const Header = () => {
 
 export default Header;
 
-// import React, { useState, Fragment } from "react";
+{/* {/* const Header = () => {
+ return (
+ <div className="bg-indigo-900 text-white">
+ <nav className="mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:px-8">
+ <div className="lg:w-1/4 w-full flex items-center justify-center">
+ <img
+ src={logo}
+ alt="Healthcare logo"
+ className="mx-auto max-w-[130px]"
+ />
+ </div>
 
-// import logo from "../../assets/images/logo.png";
-// import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+ <div className="w-full flex items-center justify-center lg:justify-between">
+ <ul
+ id="main-menu"
+ className="flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6"
+ >
+ <li className="main-menu-item">
+ <Link to="/">Homepage</Link>
+ </li>
+ <li className="main-menu-item">
+ <Link to="/about">About us</Link>
+ </li>
+ <li className="main-menu-item">
+ <Link to="/profile">Profile</Link>
+ </li>
+ <li className="main-menu-item">
+ <Link to="/services">Services</Link>
+ </li>
+ </ul>
+ </div>
 
-// function classNames(...classes: string[]) {
-//     return classes.filter(Boolean).join(' ');
-//   }
+ <div className="lg:w-1/4 w-full flex items-center justify-center lg:justify-end">
+ <button
+ className="text-base font-semibold h-full leading-8 text-gray-900 bg-F8E8EA rounded-lg py-0 px-4 whitespace-nowrap"
+ style={{
+ backgroundColor: "#F8E8EA",
+ color: "#18172B",
+ borderRadius: "8px",
+ }}
+ onClick={() => (window.location.href = "/logSign")}
+ >
+ Log in
+ </button>
 
-// const Header = () => {
-//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+ </div>
+ </nav>
+ </div>
+ );
+ };
 
-//   const callsToAction = [
-//     { name: 'Watch demo', href: '#'  },
-//     { name: 'Contact sales', href: '#' },
-//   ];
+ export default Header; */
+}
 
-//   const Header = () => {
-//     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+{/* // import React, { useState, Fragment } from "react";
 
-//     const services = [
-//       { name: "Homepage", href: "/home" },
-//       { name: "About us", href: "/about" },
-//       { name: "Profile", href: "/profile" },
-//       { name: "Services", href: "/services" },
-//     ];
+ // import logo from "../../assets/images/logo.png";
+ // import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 
-//     return (
-//       <div className="bg-indigo-900 text-white">
-//         <nav className="mx-auto flex items-center justify-between p-6 lg:px-8">
-//           <div className="lg:w-1/4 w-full flex items-center justify-start">
-//             <a href="#" className="-m-1.5 p-1.5">
-//               <span className="sr-only">Your Company</span>
-//               <img
-//                 src={logo}
-//                 alt="Healthcare logo"
-//                 className="mx-auto"
-//                 style={{ maxWidth: "130px", height: "auto", margin: "0" }}
-//               />
-//             </a>
-//           </div>
+ // function classNames(...classes: string[]) {
+ //     return classes.filter(Boolean).join(' ');
+ //   }
 
-//           <div className="flex items-center justify-center w-full">
-//             <ul id="main-menu" className="flex items-center space-x-6 justify-center">
-//               {services.map((item) => (
-//                 <li className="main-menu-item" key={item.name}>
-//                   <a href={item.href}>{item.name}</a>
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
+ // const Header = () => }
+ //   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-//           <div className="lg:w-1/4 w-full flex items-center justify-end">
-//             <button
-//               className="text-base font-semibold h-full leading-8 text-gray-900 bg-F8E8EA rounded-lg py-0 px-4 whitespace-nowrap"
-//               style={{
-//                 backgroundColor: "#F8E8EA",
-//                 color: "#18172B",
-//                 borderRadius: "8px",
-//               }}
-//               onClick={() => (window.location.href = "#")}
-//             >
-//               Log in
-//             </button>
-//           </div>
+ //   const callsToAction = [
+ //     { name: 'Watch demo', href: '#'  },
+ //     { name: 'Contact sales', href: '#' },
+ //   ];
 
-//           <div className="flex lg:hidden">
-//             <button
-//               type="button"
-//               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-//               onClick={() => setMobileMenuOpen(true)}
-//             >
-//               <span className="sr-only">Open main menu</span>
-//               {/* <Bars3Icon className="h-6 w-6" aria-hidden="true" /> */}
+ //   const Header = () => {
+ //     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+ //     const services = [
+ //       { name: "Homepage", href: "/home" },
+ //       { name: "About us", href: "/about" },
+ //       { name: "Profile", href: "/profile" },
+ //       { name: "Services", href: "/services" },
+ //     ];
+
+ //     return (
+ //       <div className="bg-indigo-900 text-white">
+ //         <nav className="mx-auto flex items-center justify-between p-6 lg:px-8">
+ //           <div className="lg:w-1/4 w-full flex items-center justify-start">
+ //             <a href="#" className="-m-1.5 p-1.5">
+ //               <span className="sr-only">Your Company</span>
+ //               <img
+ //                 src={logo}
+ //                 alt="Healthcare logo"
+ //                 className="mx-auto"
+ //                 style={{ maxWidth: "130px", height: "auto", margin: "0" }}
+ //               />
+ //             </a>
+ //           </div>
+
+ //           <div className="flex items-center justify-center w-full">
+ //             <ul id="main-menu" className="flex items-center space-x-6 justify-center">
+ //               {services.map((item) => (
+ //                 <li className="main-menu-item" key={item.name}>
+ //                   <a href={item.href}>{item.name}</a>
+ //                 </li>
+ //               ))}
+ //             </ul>
+ //           </div>
+
+ //           <div className="lg:w-1/4 w-full flex items-center justify-end">
+ //             <button
+ //               className="text-base font-semibold h-full leading-8 text-gray-900 bg-F8E8EA rounded-lg py-0 px-4 whitespace-nowrap"
+ //               style={{
+ //                 backgroundColor: "#F8E8EA",
+ //                 color: "#18172B",
+ //                 borderRadius: "8px",
+ //               }}
+ //               onClick={() => (window.location.href = "#")}
+ //             >
+ //               Log in
+ //             </button>
+ //           </div>
+
+ //           <div className="flex lg:hidden">
+ //             <button
+ //               type="button"
+ //               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+ //               onClick={() => setMobileMenuOpen(true)}
+ //             >
+ //               <span className="sr-only">Open main menu</span>
+ //               {/* <Bars3Icon className="h-6 w-6" aria-hidden="true" /> */
+}
 //             </button>
 //           </div>
 
@@ -187,4 +244,4 @@ export default Header;
 //     );
 //   };
 // };
-//   export default Header;
+//   export default Header; */}

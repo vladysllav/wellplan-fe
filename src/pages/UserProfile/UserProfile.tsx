@@ -61,6 +61,10 @@ const UserProfile: React.FC = () => {
     }, [userProfile]);
 
     const updatedUserProfileInformation = () => {
+        if (isEditing && !formik.isValid) {
+            toast.error('Please complete the form.');
+            return;
+        }
         if (isEditing && formik.isValid) {
             setUserProfile(prevUserProfile => {
                 return prevUserProfile
