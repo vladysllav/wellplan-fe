@@ -1,16 +1,18 @@
 
-import '../../assets/styles/Tailwind.css'
+import './AuthorizationForm.css';
 import {useFormik} from "formik";
 import * as yup from "yup";
 import {toast, ToastContainer} from "react-toastify";
-import Button from "../../components/Button/Button";
+import Button from "../../../components/Button/Button";
 import {Link, useNavigate} from "react-router-dom";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 
 
+interface FormProps {
+    className?: string; 
+  }
+  
 
-const Login: React.FC = () => {
+const Login: React.FC<FormProps> = () => {
     const navigate = useNavigate();
 
 
@@ -44,7 +46,7 @@ const Login: React.FC = () => {
     };
     return (
         <div className="min-h-screen">
-           <Header/>
+           
             <div className="my-6 border-t border-gray-200"></div>
             <h2 className="text-2xl mb-4 font-semibold text-blue-700">Login</h2>
             <ToastContainer/>
@@ -97,7 +99,7 @@ const Login: React.FC = () => {
                     </div>
                 </div>
             </form>
-            <Footer/>
+           
         </div>
     )
 }
