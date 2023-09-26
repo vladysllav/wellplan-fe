@@ -3,9 +3,10 @@ import * as yup from "yup";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Button from '../../../components/Button/Button';
-import {ToastContainer, toast} from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {useNavigate} from "react-router-dom";
+import useFormSubmitHandler from '../../../hooks/handleButtonClick';
 
 interface FormProps {
     className?: string;
@@ -49,14 +50,20 @@ const NewPage: React.FC<FormProps> = () => {
             navigate("/")
         }
     });
-    const handleButtonClick = () => {
-        if (formik.errors) {
-            toast.error("Please fix the form errors before submitting.");
-        } else {
-            console.log("Form data", formik.values);
-            navigate("/");
-        }
-    };
+
+   // const handleButtonClick = () => {
+       // if (formik.errors) {
+            //toast.error("Please fix the form errors before submitting.");
+       // } else {
+            //console.log("Form data", formik.values);
+            //navigate("/");
+      //  }
+  //  };
+    const handleButtonClick = useFormSubmitHandler(
+        "Please fix the form errors before submitting.",
+        "/"
+    );
+
     return (
         <div className="min-h-screen">
 
@@ -190,7 +197,7 @@ const NewPage: React.FC<FormProps> = () => {
                     ) : null
                 }
                 <div className="mt-4 pb-5">
-                    <Button label="Submit" type="submit" onClick={handleButtonClick}/>
+                    <Button label="Submit" type="submit" onClick={() => handleButtonClick(formik)}/>
                 </div>
             </form>
 

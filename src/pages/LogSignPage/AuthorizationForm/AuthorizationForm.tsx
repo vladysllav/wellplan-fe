@@ -1,9 +1,10 @@
 import {useFormik} from "formik";
 import './AuthorizationForm.css';
 import * as yup from "yup";
-import {toast, ToastContainer} from "react-toastify";
+import {ToastContainer} from "react-toastify";
 import Button from "../../../components/Button/Button";
 import {Link, useNavigate} from "react-router-dom";
+import useFormSubmitHandler from '../../../hooks/handleButtonClick';
 
 
 interface FormProps {
@@ -36,14 +37,20 @@ const Login: React.FC<FormProps> = () => {
         }
     });
 
-    const handleButtonClick = () => {
-        if (formik.errors) {
-            toast.error("Please fix the form errors before submitting.");
-        } else {
-            console.log("Form data", formik.values);
-            navigate("/");
-        }
-    };
+    //const handleButtonClick = () => {
+        //if (formik.errors) {
+           // toast.error("Please fix the form errors before submitting.");
+       // } else {
+            //console.log("Form data", formik.values);
+            //navigate("/");
+       // }
+   // };
+
+    const handleButtonClick = useFormSubmitHandler(
+        "Please fix the form errors before submitting.", // Пользовательское сообщение toast
+        "/" // Пользовательский путь навигации
+    );
+
     return (
         <div className="min-h-screen">
 
@@ -92,7 +99,7 @@ const Login: React.FC<FormProps> = () => {
                     ) : null
                 }
                 <div className="mt-4 pb-5">
-                    <Button label="Submit" type="submit" onClick={handleButtonClick}/>
+                    <Button label="Submit" type="submit" onClick={() => handleButtonClick(formik)}/>
                     <div>
                         <Link className="text-lg font-semibold text-green-500 hover:text-orange-500"
                               to="/forgot-password">Forgot your password?</Link>
