@@ -1,72 +1,135 @@
 import logo from "../../assets/images/logo.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from "react-router-dom";
 
 const Header = () => {
-    return (
-        <div className="bg-indigo-900 text-white">
-            <nav className="mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:px-8">
-                <div className="lg:w-1/4 w-full flex items-center justify-center">
-                    <img
-                        src={logo}
-                        alt="Healthcare logo"
-                        className="mx-auto max-w-[130px]"
-                    />
+  const navigate = useNavigate ();
 
+  const handleLoginClick = () => {
+    navigate("/logSign"); 
+  };
 
-                </div>
-
-                <div className="w-full flex items-center justify-center lg:justify-between">
-                    <ul
-                        id="main-menu"
-                        className="flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6"
-                    >
-                        <li className="main-menu-item">
-                            <Link to="/">Homepage</Link>
-                        </li>
-                        <li className="main-menu-item">
-                            <Link to="/about">About us</Link>
-                        </li>
-                        <li className="main-menu-item">
-                            <Link to="/profile">Profile</Link>
-                        </li>
-                        <li className="main-menu-item">
-                            <Link to="/services">Services</Link>
-
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="lg:w-1/4 w-full flex items-center justify-center lg:justify-end">
-                    <button
-                        className="text-base font-semibold h-full leading-8 text-gray-900 bg-F8E8EA rounded-lg py-0 px-4 whitespace-nowrap"
-                        style={{
-                            backgroundColor: "#F8E8EA",
-                            color: "#18172B",
-                            borderRadius: "8px",
-                        }}
-                        onClick={() => (window.location.href = "/login")}
-
-                    >
-                        Log in
-                    </button>
-                </div>
-            </nav>
+  return (
+    <div className="bg-indigo-900 text-white">
+      <nav className="mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:px-8">
+        <div className="lg:w-1/4 w-full flex items-center justify-center">
+          <img
+            src={logo}
+            alt="Healthcare logo"
+            className="mx-auto max-w-[130px]"
+          />
         </div>
-    );
+
+        <div className="w-full flex items-center justify-center lg:justify-between">
+          <ul
+            id="main-menu"
+            className="flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6"
+          >
+            <li className="main-menu-item">
+              <Link to="/">Homepage</Link>
+            </li>
+            <li className="main-menu-item">
+              <Link to="/about">About us</Link>
+            </li>
+            <li className="main-menu-item">
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li className="main-menu-item">
+              <Link to="/services">Services</Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="lg:w-1/4 w-full flex items-center justify-center lg:justify-end">
+          <button
+            className="text-base font-semibold h-full leading-8 text-gray-900 bg-F8E8EA rounded-lg py-0 px-4 whitespace-nowrap"
+            style={{
+              backgroundColor: "#F8E8EA",
+              color: "#18172B",
+              borderRadius: "8px",
+            }}
+            onClick={handleLoginClick} 
+          >
+            Log in
+          </button>
+        </div>
+      </nav>
+    </div>
+  );
 };
 
 export default Header;
 
-// import React, { useState, Fragment } from "react";
+
+{/* {/* const Header = () => {
+  return (
+    <div className="bg-indigo-900 text-white">
+      <nav className="mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:px-8">
+        <div className="lg:w-1/4 w-full flex items-center justify-center">
+          <img
+            src={logo}
+            alt="Healthcare logo"
+            className="mx-auto max-w-[130px]"
+          />
+        </div>
+
+        <div className="w-full flex items-center justify-center lg:justify-between">
+          <ul
+            id="main-menu"
+            className="flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6"
+          >
+            <li className="main-menu-item">
+              <Link to="/">Homepage</Link>
+            </li>
+            <li className="main-menu-item">
+              <Link to="/about">About us</Link>
+            </li>
+            <li className="main-menu-item">
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li className="main-menu-item">
+              <Link to="/services">Services</Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="lg:w-1/4 w-full flex items-center justify-center lg:justify-end">
+          <button
+            className="text-base font-semibold h-full leading-8 text-gray-900 bg-F8E8EA rounded-lg py-0 px-4 whitespace-nowrap"
+            style={{
+              backgroundColor: "#F8E8EA",
+              color: "#18172B",
+              borderRadius: "8px",
+            }}
+            onClick={() => (window.location.href = "/logSign")}
+          >
+            Log in
+          </button>
+          
+        </div>
+      </nav>
+    </div>
+  );
+};
+
+export default Header; */}
+
+
+
+
+
+
+
+
+{/* // import React, { useState, Fragment } from "react";
 
 // import logo from "../../assets/images/logo.png";
 // import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 
-// function classNames(...classes: string[]) {
+// function classNames(...classes: string[]) { 
 //     return classes.filter(Boolean).join(' ');
 //   }
 
-// const Header = () => {
+// const Header = () => }
 //   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 //   const callsToAction = [
@@ -180,4 +243,4 @@ export default Header;
 //     );
 //   };
 // };
-//   export default Header;
+//   export default Header; */}

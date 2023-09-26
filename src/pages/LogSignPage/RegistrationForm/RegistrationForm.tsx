@@ -3,17 +3,18 @@ import {useFormik} from "formik";
 import * as yup from "yup";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Button from '../../components/Button/Button';
+import Button from '../../../components/Button/Button';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../../assets/styles/Tailwind.css'
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+// import '../../src/assets/styles/Tailwind.css';
 import {useNavigate} from "react-router-dom";
 
+interface FormProps {
+    className?: string; 
+  }
+  
 
-
-const NewPage: React.FC = () => {
+const NewPage: React.FC<FormProps> = () => {
     const navigate = useNavigate();
 
     const formik = useFormik({
@@ -60,9 +61,9 @@ const NewPage: React.FC = () => {
     };
     return (
         <div className="min-h-screen">
-            <Header/>
+           
             <div className="my-6 border-t border-gray-200"></div>
-            <h2 className="text-2xl mb-4 font-semibold text-blue-700">Sign up</h2>
+            <h2 className="text-2xl mb-4 font-semibold text-blue-700">Sign in</h2>
             <ToastContainer/>
             <form onSubmit={formik.handleSubmit} className="mt-6 space-y-4 flex justify-center flex-col m-auto w-max">
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
@@ -194,7 +195,7 @@ const NewPage: React.FC = () => {
                     <Button label="Submit" type="submit" onClick={handleButtonClick}/>
                 </div>
             </form>
-            <Footer/>
+           
         </div>
     )
 };
