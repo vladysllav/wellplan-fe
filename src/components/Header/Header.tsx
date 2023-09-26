@@ -35,7 +35,15 @@ const Header = () => {
                     </ul>
                 </div>
 
-                <div className="lg:w-1/4 w-full flex items-center justify-center lg:justify-end">
+                <div className="lg:w-1/4 w-full flex gap-4 items-center justify-center lg:justify-end">
+
+                    <Link to="/user-profile">
+                        <span className="main-menu-item"
+                        > {/* TODO get user name and surname */}
+                            User name
+                        </span>
+                    </Link>
+
                     <button
                         className="text-base font-semibold h-full leading-8 text-gray-900 bg-F8E8EA rounded-lg py-0 px-4 whitespace-nowrap"
                         style={{

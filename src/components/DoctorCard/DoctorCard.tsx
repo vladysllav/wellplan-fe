@@ -33,7 +33,7 @@ const DoctorCard = ({ doctor }: { doctor: DoctorModel }) => {
                 </div>
 
 
-                <div className="flex justify-between">
+                <div className="flex gap-2 justify-between flex-wrap">
                     <a className="min-w-xs hover:bg-violet-700 hover:text-white text-md text-violet-700 items-center justify-center font-medium 2xl:px-6 2xl:py-3.5 px-5 py-3 border border-violet-700 rounded-md transition duration-300 ease-in-out"
                        href="/doctor/id/detail">More detail</a>
                     <a className="min-w-xs bg-violet-700 text-md text-white rounded-md items-center justify-center font-medium 2xl:px-6 2xl:py-3.5 px-5 py-3 overflow-hidden inline-flex whitespace-nowrap"

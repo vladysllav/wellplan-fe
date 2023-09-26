@@ -1,7 +1,9 @@
 export interface DoctorModel {
-    id: string;
+    id?: string;
     fullName: string;
     image: string;
+    email: string;
+    city: string;
     yearsOfExperience: number;
     specialization: string;
     bio: string;
