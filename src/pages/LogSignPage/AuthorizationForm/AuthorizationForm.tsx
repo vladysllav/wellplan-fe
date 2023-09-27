@@ -1,6 +1,5 @@
-
-import './AuthorizationForm.css';
 import {useFormik} from "formik";
+import './AuthorizationForm.css';
 import * as yup from "yup";
 import {toast, ToastContainer} from "react-toastify";
 import Button from "../../../components/Button/Button";
@@ -8,9 +7,9 @@ import {Link, useNavigate} from "react-router-dom";
 
 
 interface FormProps {
-    className?: string; 
+    className?: string;
   }
-  
+
 
 const Login: React.FC<FormProps> = () => {
     const navigate = useNavigate();
@@ -21,6 +20,7 @@ const Login: React.FC<FormProps> = () => {
             email: '',
             password: '',
         },
+
         validationSchema: yup.object({
             email: yup.string().email('Invalid email address').required('Required'),
             password: yup
@@ -46,7 +46,7 @@ const Login: React.FC<FormProps> = () => {
     };
     return (
         <div className="min-h-screen">
-           
+
             <div className="my-6 border-t border-gray-200"></div>
             <h2 className="text-2xl mb-4 font-semibold text-blue-700">Login</h2>
             <ToastContainer/>
@@ -99,7 +99,7 @@ const Login: React.FC<FormProps> = () => {
                     </div>
                 </div>
             </form>
-           
+
         </div>
     )
 }

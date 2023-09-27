@@ -1,6 +1,6 @@
 import DoctorCardList from "../../components/DoctorCardList/DoctorCardList";
-import Footer from "../../pages/Footer/Footer";
-import Header from "../../pages/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 
 const HomePage: React.FC = () => {
     return (

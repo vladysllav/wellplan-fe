@@ -5,10 +5,8 @@ import * as yup from "yup";
 import {toast, ToastContainer} from "react-toastify";
 import Button from "../../components/Button/Button";
 import {useNavigate} from "react-router-dom";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-
-
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const NewPassword: React.FC = () => {
     const navigate = useNavigate();

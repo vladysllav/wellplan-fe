@@ -1,10 +1,10 @@
-import Header from "../../Header/Header";
-import Footer from "../../Footer/Footer";
 import { ToastContainer, toast } from "react-toastify";
 import Button from "../../../components/Button/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import Header from "../../../components/Header/Header";
+import Footer from "../../../components/Footer/Footer";
 
 const ForgotPassword: React.FC = () => {
   const navigate = useNavigate();

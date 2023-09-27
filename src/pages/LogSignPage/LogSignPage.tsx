@@ -1,7 +1,7 @@
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 import AuthorizationForm from "./AuthorizationForm/AuthorizationForm";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
-import Header from "../../pages/Header/Header";
-import Footer from "../../pages/Footer/Footer";
 
 const LogSignPage: React.FC = () => {
   return (

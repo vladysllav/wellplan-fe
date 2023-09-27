@@ -1,4 +1,3 @@
-
 import {useFormik} from "formik";
 import * as yup from "yup";
 import DatePicker from 'react-datepicker';
@@ -6,13 +5,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Button from '../../../components/Button/Button';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import '../../src/assets/styles/Tailwind.css';
 import {useNavigate} from "react-router-dom";
 
 interface FormProps {
-    className?: string; 
+    className?: string;
   }
-  
+
 
 const NewPage: React.FC<FormProps> = () => {
     const navigate = useNavigate();
@@ -61,7 +59,7 @@ const NewPage: React.FC<FormProps> = () => {
     };
     return (
         <div className="min-h-screen">
-           
+
             <div className="my-6 border-t border-gray-200"></div>
             <h2 className="text-2xl mb-4 font-semibold text-blue-700">Sign in</h2>
             <ToastContainer/>
@@ -195,7 +193,7 @@ const NewPage: React.FC<FormProps> = () => {
                     <Button label="Submit" type="submit" onClick={handleButtonClick}/>
                 </div>
             </form>
-           
+
         </div>
     )
 };
