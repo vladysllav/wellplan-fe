@@ -8,9 +8,7 @@ import Button from '../../../components/Button/Button';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {useNavigate} from "react-router-dom";
-
 import useCustomFormValidation from '../../../hooks/customFormLogin';
-
 
 
 interface FormProps {
@@ -55,7 +53,6 @@ const NewPage: React.FC<FormProps> = () => {
             navigate("/")
         }
     });
-
 
     const handleFormValidation = useCustomFormValidation(
         "Please fix the form errors before submitting.",

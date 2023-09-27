@@ -9,14 +9,10 @@ import useCustomFormValidation from '../../../hooks/customFormLogin';
 
 
 
+
 interface FormProps {
     className?: string;
 }
-
-
-
-
-
 
 const Login: React.FC<FormProps> = () => {
 
@@ -98,7 +94,6 @@ const Login: React.FC<FormProps> = () => {
                     ) : null
                 }
                 <div className="mt-4 pb-5">
-
                     <Button label="Submit" type="submit"
                             onClick={() => handleFormValidation(formik,
                                 "Please fix the form errors before submitting",

@@ -23,6 +23,7 @@ const ForgotPassword: React.FC = () => {
     },
   });
 
+
     const handleFormValidation = useCustomFormValidation(
         "Please fix the form errors before submitting.",
         false,
