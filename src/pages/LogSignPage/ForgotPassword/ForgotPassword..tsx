@@ -6,7 +6,9 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
-import useFormSubmitHandler from '../../../hooks/handleButtonClick';
+
+import useCustomFormValidation from '../../../hooks/customFormLogin';
+
 const ForgotPassword: React.FC = () => {
 
   const formik = useFormik({
@@ -21,8 +23,10 @@ const ForgotPassword: React.FC = () => {
     },
   });
 
-    const handleButtonClick = useFormSubmitHandler(
+
+    const handleFormValidation = useCustomFormValidation(
         "Please fix the form errors before submitting.",
+        false,
         "A message with password recovery instructions has been sent by email."
     );
 
@@ -63,7 +67,9 @@ const ForgotPassword: React.FC = () => {
           <Button
             label="RESET PASSWORD"
             type="submit"
-            onClick={() => handleButtonClick(formik)}
+            onClick={() => handleFormValidation(formik,
+                "Please fix the form errors before submitting",
+                "A message with password recovery instructions has been sent by email.")}
           />
           <div>
             <Link
