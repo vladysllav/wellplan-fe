@@ -9,7 +9,6 @@ import useCustomFormValidation from '../../../hooks/customFormLogin';
 
 
 
-
 interface FormProps {
     className?: string;
 }
@@ -36,7 +35,6 @@ const Login: React.FC<FormProps> = () => {
             console.log('Form data', values);
         }
     });
-
 
 
     const handleFormValidation = useCustomFormValidation(
