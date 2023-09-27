@@ -1,16 +1,56 @@
 import Header from "../../pages/Header/Header";
 import Footer from "../../pages/Footer/Footer";
 import ScrollToTopButton from "../../components/Button/ScrollToTopButton";
+import React, { useState } from 'react';
 
 const Terms = () => {
-    return (
+  const [isChecked, setIsChecked] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-<div className="container-terms bg-gray-100 min-h-screen">
-<div id="top"></div>
-  <Header />
-  <section className="md:p-10 p-5 bg-violet-100">
-  
-    <div>
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
+  const handleSubmit = () => {
+    if (isChecked) {
+      console.log('The user has agreed to the terms.');
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+    } else {
+      console.log('The user did not agree to the terms.');
+    }
+  };
+
+  const goBack = () => {
+    window.history.back();
+  };
+
+  return (
+    <div className="container-terms bg-gray-100 min-h-screen">
+      <div id="top"></div>
+      <Header />
+      <section className="md:p-10 p-5 bg-violet-100">
+        <div>
+          <div className="flex items-center cursor-pointer mb-4" onClick={goBack}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            Go back
+          </div>
+
       <h1 className="terms-main-title font-bold text-4xl">Terms and Conditions</h1>
 
       <h2 className="text-2xl font-bold mt-4 text-left">1. Definition of Terms</h2>
@@ -173,14 +213,47 @@ const Terms = () => {
     <li className="terms-list-item"><strong>8.1.</strong> The User may terminate his Account at any time by sending a letter with a corresponding request to the email address info@. After the User receives confirmation, his access to the Site and the Contractor's Service will be terminated.</li>
     <li className="terms-list-item"><strong>8.2.</strong>The Contractor may, at its sole discretion, remove or suspend access to the entire Site, the Contractor's Service, or any part thereof for any reason, including the User's violation or failure to comply with these Terms of Service.</li>
 </ol>
-
-
-<ScrollToTopButton />
-    </div>
-  </section>
-  <Footer />
 </div>
+          
+<div>
+          <div className="mt-4">
+            <label className="inline-flex items-center">
+              <input
+                type="checkbox"
+                className="form-checkbox text-indigo-600 h-5 w-5"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+              />
+              <span className="ml-2 text-gray-700">
+                I have read and agree to the terms
+              </span>
+            </label>
+          </div>
 
- );
+          <button
+            className={`mt-4 bg-indigo-500 text-white py-2 px-4 rounded-full ${
+              isChecked ? 'opacity-100' : 'opacity-50 cursor-not-allowed'
+            }`}
+            disabled={!isChecked}
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </div>
+
+        {showSuccessMessage && (
+          <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div className="bg-white p-4 rounded-lg shadow-lg">
+              <p className="text-indigo-500">The agreement is successful!</p>
+            </div>
+          </div>
+        )}
+
+        <ScrollToTopButton />
+      </section>
+      <Footer />
+    </div>
+  );
 };
-    export default Terms;
+
+export default Terms;
