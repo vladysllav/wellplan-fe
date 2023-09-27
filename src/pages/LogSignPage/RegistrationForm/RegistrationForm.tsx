@@ -1,11 +1,15 @@
+
+import '../../../assets/styles/Tailwind.css';
 import {useFormik} from "formik";
 import * as yup from "yup";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Button from '../../../components/Button/Button';
-import {ToastContainer, toast} from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {useNavigate} from "react-router-dom";
+import useCustomFormValidation from '../../../hooks/customFormLogin';
+
 
 interface FormProps {
     className?: string;
@@ -20,8 +24,8 @@ const NewPage: React.FC<FormProps> = () => {
             firstName: '',
             lastName: '',
             email: '',
-            userType: '',
             password: '',
+            //userType: '',
             date_of_birth: null
         },
         validationSchema: yup.object({
@@ -38,9 +42,9 @@ const NewPage: React.FC<FormProps> = () => {
                 .min(8, 'Password must be at least 8 characters long')
                 .max(15, 'Password cannot exceed 15 characters')
                 .matches(/^[a-zA-Z0-9]+$/, 'Password cannot contain special characters'),
-            userType: yup.string()
-                .oneOf(['admin', 'client'], 'Invalid user type')
-                .required('Required'),
+            //userType: yup.string()
+                //.oneOf(['admin', 'client'], 'Invalid user type')
+               // .required('Required'),
             date_of_birth: yup.date().nullable().required('Required')
         }),
 
@@ -49,14 +53,13 @@ const NewPage: React.FC<FormProps> = () => {
             navigate("/")
         }
     });
-    const handleButtonClick = () => {
-        if (formik.errors) {
-            toast.error("Please fix the form errors before submitting.");
-        } else {
-            console.log("Form data", formik.values);
-            navigate("/");
-        }
-    };
+
+    const handleFormValidation = useCustomFormValidation(
+        "Please fix the form errors before submitting.",
+        true,
+        "/"
+    );
+
     return (
         <div className="min-h-screen">
 
@@ -124,36 +127,6 @@ const NewPage: React.FC<FormProps> = () => {
                         <div className="text-red-500">{formik.errors.email}</div>
                     ) : null
                 }
-                <div className="flex flex-col w-72">
-                    <label className="mb-2 font-semibold text-gray-700">User type</label>
-                    <div className="flex justify-around">
-                        <label>
-                            <input
-                                type="radio"
-                                id="admin"
-                                name="userType"
-                                value="admin"
-                                checked={formik.values.userType === 'admin'}
-                                onChange={formik.handleChange}
-                            />
-                            Admin
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                id="client"
-                                name="userType"
-                                value="client"
-                                checked={formik.values.userType === 'client'}
-                                onChange={formik.handleChange}
-                            />
-                            Client
-                        </label>
-                    </div>
-                    {formik.touched.userType && formik.errors.userType ? (
-                        <div className="text-red-500">{formik.errors.userType}</div>
-                    ) : null}
-                </div>
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
                         className="input-field peer my_input"
@@ -190,7 +163,11 @@ const NewPage: React.FC<FormProps> = () => {
                     ) : null
                 }
                 <div className="mt-4 pb-5">
-                    <Button label="Submit" type="submit" onClick={handleButtonClick}/>
+                    <Button label="Submit" type="submit"
+                            onClick={() => handleFormValidation(formik,
+                                "Please fix the form errors before submitting",
+                                "/")}
+                    />
                 </div>
             </form>
 

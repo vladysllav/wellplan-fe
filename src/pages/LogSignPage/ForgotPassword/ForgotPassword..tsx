@@ -1,13 +1,14 @@
-import { ToastContainer, toast } from "react-toastify";
+
+import { ToastContainer } from "react-toastify";
 import Button from "../../../components/Button/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
-
+import useCustomFormValidation from '../../../hooks/customFormLogin';
+import '../../../assets/styles/Tailwind.css'
 const ForgotPassword: React.FC = () => {
-  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -20,17 +21,12 @@ const ForgotPassword: React.FC = () => {
       console.log("Form data", values);
     },
   });
-  const handleButtonClick = () => {
-    if (formik.errors.email) {
-      toast.error("Please fix the form errors before submitting.");
-    } else {
-      console.log("Form data", formik.values);
-      toast.success(
+
+    const handleFormValidation = useCustomFormValidation(
+        "Please fix the form errors before submitting.",
+        false,
         "A message with password recovery instructions has been sent by email."
-      );
-      formik.resetForm();
-    }
-  };
+    );
 
   return (
     <div className="min-h-screen">
@@ -69,7 +65,9 @@ const ForgotPassword: React.FC = () => {
           <Button
             label="RESET PASSWORD"
             type="submit"
-            onClick={handleButtonClick}
+            onClick={() => handleFormValidation(formik,
+                "Please fix the form errors before submitting",
+                "A message with password recovery instructions has been sent by email.")}
           />
           <div>
             <Link

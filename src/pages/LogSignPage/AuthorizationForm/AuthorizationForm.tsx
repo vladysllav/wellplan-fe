@@ -1,18 +1,23 @@
+
+import '../../../assets/styles/Tailwind.css';
 import {useFormik} from "formik";
 import './AuthorizationForm.css';
 import * as yup from "yup";
-import {toast, ToastContainer} from "react-toastify";
+import {ToastContainer} from "react-toastify";
 import Button from "../../../components/Button/Button";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
+import useCustomFormValidation from '../../../hooks/customFormLogin';
 
 
 interface FormProps {
     className?: string;
+
+
   }
 
 
+
 const Login: React.FC<FormProps> = () => {
-    const navigate = useNavigate();
 
 
     const formik = useFormik({
@@ -32,18 +37,16 @@ const Login: React.FC<FormProps> = () => {
         }),
         onSubmit: values => {
             console.log('Form data', values);
-            navigate("/");
         }
     });
 
-    const handleButtonClick = () => {
-        if (formik.errors) {
-            toast.error("Please fix the form errors before submitting.");
-        } else {
-            console.log("Form data", formik.values);
-            navigate("/");
-        }
-    };
+    const handleFormValidation = useCustomFormValidation(
+        "Please fix the form errors before submitting.",
+        true,
+        "/"
+    );
+
+
     return (
         <div className="min-h-screen">
 
@@ -92,7 +95,10 @@ const Login: React.FC<FormProps> = () => {
                     ) : null
                 }
                 <div className="mt-4 pb-5">
-                    <Button label="Submit" type="submit" onClick={handleButtonClick}/>
+                    <Button label="Submit" type="submit"
+                            onClick={() => handleFormValidation(formik,
+                                "Please fix the form errors before submitting",
+                                "/")}/>
                     <div>
                         <Link className="text-lg font-semibold text-green-500 hover:text-orange-500"
                               to="/forgot-password">Forgot your password?</Link>
