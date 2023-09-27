@@ -1,3 +1,5 @@
+
+import '../../../assets/styles/Tailwind.css';
 import {useFormik} from "formik";
 import './AuthorizationForm.css';
 import * as yup from "yup";
@@ -7,16 +9,11 @@ import {Link} from "react-router-dom";
 import useCustomFormValidation from '../../../hooks/customFormLogin';
 
 
-
-
-
-
-
 interface FormProps {
     className?: string;
 
-  }
 
+  }
 
 
 
@@ -43,15 +40,6 @@ const Login: React.FC<FormProps> = () => {
         }
     });
 
-
-    //const handleButtonClick = () => {
-        //if (formik.errors) {
-           // toast.error("Please fix the form errors before submitting.");
-       // } else {
-            //console.log("Form data", formik.values);
-            //navigate("/");
-       // }
-   // };
     const handleFormValidation = useCustomFormValidation(
         "Please fix the form errors before submitting.",
         true,
