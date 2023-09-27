@@ -63,7 +63,7 @@ const NewPage: React.FC<FormProps> = () => {
         <div className="min-h-screen">
            
             <div className="my-6 border-t border-gray-200"></div>
-            <h2 className="text-2xl mb-4 font-semibold text-blue-700">Sign in</h2>
+            <h2 className="text-2xl mb-4 font-semibold text-indigo-900">Sign in</h2>
             <ToastContainer/>
             <form onSubmit={formik.handleSubmit} className="mt-6 space-y-4 flex justify-center flex-col m-auto w-max">
                 <div className="relative h-10 w-full min-w-[200px] mt-5">

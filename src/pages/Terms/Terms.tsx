@@ -2,6 +2,8 @@ import Header from "../../pages/Header/Header";
 import Footer from "../../pages/Footer/Footer";
 import ScrollToTopButton from "../../components/Button/ScrollToTopButton";
 import React, { useState } from 'react';
+import Button from '../../components/Button/Button';
+
 
 const Terms = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -229,17 +231,19 @@ const Terms = () => {
               </span>
             </label>
           </div>
+</div>
+          <div>
+     
+          <Button
+    label="Submit"
+    type="submit"
+    variant="primary"
+    disabled={!isChecked}
+    onClick={handleSubmit}
+  
+/>
 
-          <button
-            className={`mt-4 bg-indigo-500 text-white py-2 px-4 rounded-full ${
-              isChecked ? 'opacity-100' : 'opacity-50 cursor-not-allowed'
-            }`}
-            disabled={!isChecked}
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
-        </div>
+    </div>
 
         {showSuccessMessage && (
           <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -253,7 +257,7 @@ const Terms = () => {
       </section>
       <Footer />
     </div>
-  );
+  )
 };
 
 export default Terms;
