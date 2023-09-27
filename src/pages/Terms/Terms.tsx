@@ -6,8 +6,10 @@ const Terms = () => {
     return (
 
 <div className="container-terms bg-gray-100 min-h-screen">
+<div id="top"></div>
   <Header />
   <section className="md:p-10 p-5 bg-violet-100">
+  
     <div>
       <h1 className="terms-main-title font-bold text-4xl">Terms and Conditions</h1>
 
