@@ -1,3 +1,4 @@
+
 import '../../../assets/styles/Tailwind.css';
 import {useFormik} from "formik";
 import * as yup from "yup";
@@ -12,6 +13,7 @@ import useCustomFormValidation from '../../../hooks/customFormLogin';
 interface FormProps {
     className?: string;
 }
+
 
 
 
@@ -39,8 +41,6 @@ const Login: React.FC<FormProps> = () => {
             console.log('Form data', values);
         }
     });
-
-
 
 
     const handleFormValidation = useCustomFormValidation(

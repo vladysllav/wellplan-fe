@@ -9,6 +9,7 @@ import Footer from "../../../components/Footer/Footer";
 import useCustomFormValidation from '../../../hooks/customFormLogin';
 import '../../../assets/styles/Tailwind.css'
 
+
 const ForgotPassword: React.FC = () => {
 
   const formik = useFormik({
@@ -22,7 +23,6 @@ const ForgotPassword: React.FC = () => {
       console.log("Form data", values);
     },
   });
-
 
     const handleFormValidation = useCustomFormValidation(
         "Please fix the form errors before submitting.",
