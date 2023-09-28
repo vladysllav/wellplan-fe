@@ -1,7 +1,6 @@
 
 import '../../../assets/styles/Tailwind.css';
 import {useFormik} from "formik";
-import './AuthorizationForm.css';
 import * as yup from "yup";
 import {ToastContainer} from "react-toastify";
 import Button from "../../../components/Button/Button";
