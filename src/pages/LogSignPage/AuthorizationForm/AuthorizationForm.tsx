@@ -51,7 +51,7 @@ const Login: React.FC<FormProps> = () => {
         <div className="min-h-screen">
 
             <div className="my-6 border-t border-gray-200"></div>
-            <h2 className="text-2xl mb-4 font-semibold text-blue-700">Login</h2>
+            <h2 className="text-2xl mb-4 font-semibold text-indigo-900">Login</h2>
             <ToastContainer/>
             <form onSubmit={formik.handleSubmit} className="mt-6 space-y-4 flex justify-center flex-col m-auto w-max">
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
@@ -100,7 +100,7 @@ const Login: React.FC<FormProps> = () => {
                                 "Please fix the form errors before submitting",
                                 "/")}/>
                     <div>
-                        <Link className="text-lg font-semibold text-green-500 hover:text-orange-500"
+                        <Link className="text-lg font-semibold text-indigo-900 hover:text-indigo-500"
                               to="/forgot-password">Forgot your password?</Link>
                     </div>
                 </div>

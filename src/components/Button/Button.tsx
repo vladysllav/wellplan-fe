@@ -5,24 +5,32 @@ interface ButtonProps {
     onClick?: () => void;
     variant?: 'primary' | 'secondary';
     type?: 'button' | 'submit' | 'reset';
+    disabled?: boolean;
+    style?: React.CSSProperties;
 }
 
-const Button: React.FC<ButtonProps> = ({ 
-    label, 
-    onClick, 
+const Button: React.FC<ButtonProps> = ({
+    label,
+    onClick,
     variant = 'primary',
-    type = 'button'
+    type = 'button',
+    disabled = false,
+    style = {},
 }) => {
     const buttonStyles = {
-        primary: 'bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded',
-        secondary: 'bg-gray-300 hover:bg-gray-400 text-black py-2 px-4 rounded'
+        primary: 'text-white py-2 px-4 rounded-full bg-indigo-900', 
+        secondary: 'text-black py-2 px-4 rounded-full bg-gray-300', 
     };
 
     return (
         <button
             type={type}
-            className={buttonStyles[variant]}
+            className={`${buttonStyles[variant]} ${
+                disabled ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
+            }`}
+            disabled={disabled}
             onClick={onClick}
+            style={style}
         >
             {label}
         </button>

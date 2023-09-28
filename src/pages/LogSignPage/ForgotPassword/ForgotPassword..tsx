@@ -32,7 +32,7 @@ const ForgotPassword: React.FC = () => {
     <div className="min-h-screen">
       <Header />
       <div className="my-6 border-t border-gray-200"></div>
-      <h2 className="text-2xl mb-4 font-semibold text-blue-700">
+      <h2 className="text-2xl mb-4 font-semibold text-indigo-900">
         Recover Password
       </h2>
       <p>
@@ -71,7 +71,7 @@ const ForgotPassword: React.FC = () => {
           />
           <div>
             <Link
-              className="text-lg font-semibold text-green-500 hover:text-orange-500"
+              className="text-lg font-semibold text-indigo-900 hover:text-indigo-500"
               to="/login"
             >
               Back to login
