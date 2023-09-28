@@ -3,30 +3,32 @@ import Footer from "../../pages/Footer/Footer";
 import ScrollToTopButton from "../../components/Button/ScrollToTopButton";
 import React, { useState } from 'react';
 import Button from '../../components/Button/Button';
-
+import useToggle from '../../hooks/useToggle';
+import { useNavigate } from 'react-router-dom';
 
 const Terms = () => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, toggleCheckbox] = useToggle(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const navigate = useNavigate();  
 
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+    toggleCheckbox(); 
   };
 
   const handleSubmit = () => {
     if (isChecked) {
-      console.log('The user has agreed to the terms.');
+      
       setShowSuccessMessage(true);
       setTimeout(() => {
         setShowSuccessMessage(false);
       }, 3000);
     } else {
-      console.log('The user did not agree to the terms.');
+     
     }
   };
 
   const goBack = () => {
-    window.history.back();
+    navigate(-1);
   };
 
   return (

@@ -4,15 +4,8 @@ import { Link } from 'react-scroll';
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
   useEffect(() => {
+    const toggleVisibility = () => setIsVisible(window.pageYOffset > 300);
     window.addEventListener('scroll', toggleVisibility);
     return () => {
       window.removeEventListener('scroll', toggleVisibility);
