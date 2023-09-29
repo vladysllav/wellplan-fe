@@ -11,10 +11,10 @@ const AddDoctorPage: React.FC = () => {
       <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
         <section className="md:p-10 p-5 bg-violet-100 w-full">
           <div className="md:flex md:justify-center">
-            <div className="md:w-1/2 md:mr-2 mb-4 md:mb-0">
-              <div className="w-full max-w-lg bg-white border border-gray-200 rounded-lg shadow mx-auto">
+            <div className="md:mr-2 mb-4 md:mb-0">
+              
                 <AddDoctorForm />
-              </div>
+              
             </div>
           </div>
         </section>
