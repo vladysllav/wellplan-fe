@@ -1,18 +1,17 @@
 import React from "react";
 
-// Define the prop types for TeamCard
 type TeamCardProps = {
     imageSrc: string;
     name: string;
     profession: string;
 };
 
-const TeamCard: React.FC<TeamCardProps> = ({ imageSrc, name, profession }) => {
+const TeamCard: React.FC<TeamCardProps> = ({imageSrc, name, profession}) => {
     return (
         <div className="w-full px-4 md:w-1/2 xl:w-1/4 bg-violet-100">
             <div className="mx-auto mb-10 w-full max-w-[370px]">
                 <div className="relative overflow-hidden rounded-lg">
-                    <img src={imageSrc} alt={name} className="w-full" />
+                    <img src={imageSrc} alt={name} className="w-full"/>
                     <div className="absolute left-0 w-full text-center bottom-5">
                         <div className="relative px-3 py-5 mx-5 overflow-hidden bg-white rounded-lg">
                             <h3 className="text-base font-semibold text-dark">{name}</h3>
@@ -42,7 +41,6 @@ const TeamCard: React.FC<TeamCardProps> = ({ imageSrc, name, profession }) => {
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
                                 >
-                                    {/* Add your circle SVG elements here */}
                                 </svg>
                             </div>
                         </div>
@@ -60,12 +58,9 @@ const Team: React.FC = () => {
                 <div className="flex flex-wrap -mx-4">
                     <div className="w-full px-4">
                         <div className="mx-auto mb-[60px] max-w-[510px] text-center">
-              <h2 className="mb-4 text-4xl font-semibold text-blue-500 dark:text-gray-300">
-                Our Team
-              </h2>
-                            <h3 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
-                                Our Awesome Team
-                            </h3>
+                            <h2 className="mb-4 text-4xl font-semibold text-blue-500 dark:text-gray-300">
+                                Our Team
+                            </h2>
                             <p className="text-base text-body-color">
                                 There are many variations of passages of Lorem Ipsum available
                                 but the majority have suffered alteration in some form.

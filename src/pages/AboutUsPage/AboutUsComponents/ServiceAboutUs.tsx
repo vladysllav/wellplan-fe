@@ -1,4 +1,4 @@
-import React from "react";
+
 import ServiceCard from "./ServiceCard";
 
 const Service = () => {
@@ -15,7 +15,6 @@ const Service = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    {/* ... ваш SVG-код ... */}
                 </svg>
             ),
         },
@@ -31,7 +30,6 @@ const Service = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    {/* ... ваш SVG-код ... */}
                 </svg>
             ),
         },
@@ -47,7 +45,6 @@ const Service = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    {/* ... ваш SVG-код ... */}
                 </svg>
             ),
         },
@@ -63,7 +60,6 @@ const Service = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    {/* ... ваш SVG-код ... */}
                 </svg>
             ),
         },
@@ -80,7 +76,6 @@ const Service = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    {/* ... ваш SVG-код ... */}
                 </svg>
             ),
         },
@@ -96,7 +91,6 @@ const Service = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    {/* ... ваш SVG-код ... */}
                 </svg>
             ),
         },

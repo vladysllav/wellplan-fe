@@ -6,14 +6,10 @@ import {ToastContainer} from "react-toastify";
 import Button from "../../../components/Button/Button";
 import {Link} from "react-router-dom";
 import useCustomFormValidation from '../../../hooks/customFormLogin';
+import React from 'react';
 
 
-
-interface FormProps {
-    className?: string;
-}
-
-const Login: React.FC<FormProps> = () => {
+const Login: React.FC = () => {
 
 
     const formik = useFormik({
