@@ -4,12 +4,12 @@ import medical_team from "../../assets/images/about_us/medical_team.jpg"
 import our_goal from "../../assets/images/about_us/our_goal.png"
 import our_mission from "../../assets/images/about_us/our_mission.png"
 import table from "../../assets/images/about_us/table.jpg"
-import ServiceAboutUs from "./AboutUsComponents/ServiceAboutUs";
-import TeamAboutUs from "./AboutUsComponents/TeamAboutUs";
-import ReviewsAboutUs from "./AboutUsComponents/ReviewsAboutUs";
-import FirstSectionAbout from "./AboutUsComponents/FirstSectionAbout";
-import SecondSection from "./AboutUsComponents/SecondSection";
-import ThirdSection from "./AboutUsComponents/ThirdSection";
+import ServiceAboutUs from "../AboutUsPage/AboutUsComponents/ServiceAboutUs";
+import TeamAboutUs from "../AboutUsPage/AboutUsComponents/TeamAboutUs";
+import ReviewsAboutUs from "../AboutUsPage/AboutUsComponents/ReviewsAboutUs";
+import FirstSectionAbout from "../AboutUsPage/AboutUsComponents/FirstSectionAbout";
+import SecondSection from "../AboutUsPage/AboutUsComponents/SecondSection";
+import ThirdSection from "../AboutUsPage/AboutUsComponents/FirstSectionAbout";
 
 
 const AboutUsPage = () => {
@@ -28,12 +28,11 @@ const AboutUsPage = () => {
                     information about their valid licenses, diplomas, and certificates."
                 />
                 <SecondSection ourGoalImage={our_goal} ourMissionImage={our_mission}/>
-                <ThirdSection imageSrc={table}
+                <ThirdSection imageUrl={table}
                               title="Principles"
                               description=" We call on doctors to provide as many free medical consultations as possible
                                to the population, as this, in our opinion, is currently a socially responsible task of
-                               state importance."
-                               linkTo="/"/>
+                               state importance."/>
                 <ServiceAboutUs/>
                 <div className="bg-violet-100">
                     <TeamAboutUs/>

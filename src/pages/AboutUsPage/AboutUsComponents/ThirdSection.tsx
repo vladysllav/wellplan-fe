@@ -6,11 +6,10 @@ interface ThirdSectionProps {
     imageSrc: string;
     title: string;
     description: string;
-    linkTo: string;
 }
 
 const ThirdSection: React.FC<ThirdSectionProps> =
-    ({imageSrc, title, description, linkTo,}) => {
+    ({imageSrc, title, description}) => {
     return (
         <section className="flex items-center py-20 xl:h-screen font-poppins dark:bg-gray-800 bg-violet-100">
             <div className="justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-6 md:px-6">
@@ -25,7 +24,7 @@ const ThirdSection: React.FC<ThirdSectionProps> =
                         <div className="w-full p-8 border shadow-sm dark:border-gray-700 bg-gray-50 dark:bg-gray-700 lg:w-96 rounded-2xl">
                             <h2 className="mb-4 text-4xl font-semibold text-blue-500 dark:text-gray-300">{title}</h2>
                             <p className="pb-4 mb-4 text-gray-600 dark:text-gray-400">{description}</p>
-                            <Link className="about_link" to={linkTo}>
+                            <Link className="about_link" to={"/"}>
                                 Learn more
                             </Link>
                         </div>
