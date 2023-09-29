@@ -11,11 +11,9 @@ import AuthorizationForm from "./pages/LogSignPage/AuthorizationForm/Authorizati
 import ForgotPassword from "./pages/LogSignPage/ForgotPassword/ForgotPassword.";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import UserProfile from "./pages/UserProfile/UserProfile";
-
-
-
 import Terms from "./pages/Terms/Terms";
 import LogSignPage from "./pages/LogSignPage/LogSignPage";
+import AddDoctorPage from "./pages/AddDoctorPage/AddDoctorPage";
 
 function App() {
     const dispatch = useDispatch<AppDispatch>();
@@ -47,6 +45,7 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/terms" element={<Terms />} />
                     <Route path="/logSign" element={<LogSignPage />} />
+                    <Route path="/add-doctor" element={<AddDoctorPage />} />
                 </Routes>
             </main>
         </div>
