@@ -18,16 +18,14 @@ const Button: React.FC<ButtonProps> = ({
     style = {},
 }) => {
     const buttonStyles = {
-        primary: 'text-white py-2 px-4 rounded-full bg-indigo-900', 
-        secondary: 'text-black py-2 px-4 rounded-full bg-gray-300', 
+        primary: 'text-white py-2 px-4 rounded-full bg-indigo-900',
+        secondary: 'text-black py-2 px-4 rounded-full bg-gray-300',
     };
 
     return (
         <button
             type={type}
-            className={`${buttonStyles[variant]} ${
-                disabled ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
-            }`}
+            className={`${buttonStyles[variant]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}`}
             disabled={disabled}
             onClick={onClick}
             style={style}

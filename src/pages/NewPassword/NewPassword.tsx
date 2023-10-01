@@ -1,16 +1,14 @@
-
-import '../../assets/styles/Tailwind.css'
-import {useFormik} from "formik";
-import * as yup from "yup";
-import {toast, ToastContainer} from "react-toastify";
-import Button from "../../components/Button/Button";
-import {useNavigate} from "react-router-dom";
+import '../../assets/styles/Tailwind.css';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { toast, ToastContainer } from 'react-toastify';
+import Button from '../../components/Button/Button';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 const NewPassword: React.FC = () => {
     const navigate = useNavigate();
-
 
     const formik = useFormik({
         initialValues: {
@@ -27,29 +25,29 @@ const NewPassword: React.FC = () => {
             confirmPassword: yup
                 .string()
                 .required('Required')
-                .oneOf([yup.ref('password')], 'Passwords must match')
+                .oneOf([yup.ref('password')], 'Passwords must match'),
         }),
-        onSubmit: values => {
+        onSubmit: (values) => {
             console.log('Form data', values);
-            navigate("/login");
-        }
+            navigate('/login');
+        },
     });
 
     const handleButtonClick = () => {
         if (formik.errors) {
-            toast.error("Please fix the form errors before submitting.");
+            toast.error('Please fix the form errors before submitting.');
         } else {
-            console.log("Form data", formik.values);
-            navigate("/login");
-            toast.success("Password updated successfully");
+            console.log('Form data', formik.values);
+            navigate('/login');
+            toast.success('Password updated successfully');
         }
     };
     return (
         <div className="min-h-screen">
-            <Header/>
+            <Header />
             <div className="my-6 border-t border-gray-200"></div>
             <h2 className="text-2xl mb-4 font-semibold text-blue-700">Create a new password</h2>
-            <ToastContainer/>
+            <ToastContainer />
             <form onSubmit={formik.handleSubmit} className="mt-6 space-y-4 flex justify-center flex-col m-auto w-max">
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
@@ -62,15 +60,11 @@ const NewPassword: React.FC = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.password}
                     />
-                    <label className="label_field my_label">
-                        New password
-                    </label>
+                    <label className="label_field my_label">New password</label>
                 </div>
-                {
-                    formik.touched.password && formik.errors.password ? (
-                        <div className="text-red-500">{formik.errors.password}</div>
-                    ) : null
-                }
+                {formik.touched.password && formik.errors.password ? (
+                    <div className="text-red-500">{formik.errors.password}</div>
+                ) : null}
                 <div className="relative h-10 w-full min-w-[200px] mt-5">
                     <input
                         className="input-field peer my_input"
@@ -82,21 +76,17 @@ const NewPassword: React.FC = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.confirmPassword}
                     />
-                    <label className="label_field my_label">
-                        Enter the password again
-                    </label>
+                    <label className="label_field my_label">Enter the password again</label>
                 </div>
-                {
-                    formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-                        <div className="text-red-500">{formik.errors.confirmPassword}</div>
-                    ) : null
-                }
+                {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+                    <div className="text-red-500">{formik.errors.confirmPassword}</div>
+                ) : null}
                 <div className="mt-4 pb-5">
-                    <Button label="Submit" type="submit" onClick={handleButtonClick}/>
+                    <Button label="Submit" type="submit" onClick={handleButtonClick} />
                 </div>
             </form>
-            <Footer/>
+            <Footer />
         </div>
-    )
-}
+    );
+};
 export default NewPassword;

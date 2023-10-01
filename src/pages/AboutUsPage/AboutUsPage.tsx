@@ -1,22 +1,21 @@
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
-import medical_team from "../../assets/images/about_us/medical_team.jpg"
-import our_goal from "../../assets/images/about_us/our_goal.png"
-import our_mission from "../../assets/images/about_us/our_mission.png"
-import table from "../../assets/images/about_us/table.jpg"
-import ServiceAboutUs from "../AboutUsPage/AboutUsComponents/ServiceAboutUs";
-import TeamAboutUs from "../AboutUsPage/AboutUsComponents/TeamAboutUs";
-import ReviewsAboutUs from "../AboutUsPage/AboutUsComponents/ReviewsAboutUs";
-import FirstSectionAbout from "../AboutUsPage/AboutUsComponents/FirstSectionAbout";
-import SecondSection from "../AboutUsPage/AboutUsComponents/SecondSection";
-import ThirdSection from "../AboutUsPage/AboutUsComponents/FirstSectionAbout";
-
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
+import medical_team from '../../assets/images/about_us/medical_team.jpg';
+import our_goal from '../../assets/images/about_us/our_goal.png';
+import our_mission from '../../assets/images/about_us/our_mission.png';
+import table from '../../assets/images/about_us/table.jpg';
+import ServiceAboutUs from '../AboutUsPage/AboutUsComponents/ServiceAboutUs';
+import TeamAboutUs from '../AboutUsPage/AboutUsComponents/TeamAboutUs';
+import ReviewsAboutUs from '../AboutUsPage/AboutUsComponents/ReviewsAboutUs';
+import FirstSectionAbout from '../AboutUsPage/AboutUsComponents/FirstSectionAbout';
+import SecondSection from '../AboutUsPage/AboutUsComponents/SecondSection';
+import ThirdSection from '../AboutUsPage/AboutUsComponents/FirstSectionAbout';
 
 const AboutUsPage = () => {
     return (
         <>
             <div className="bg-gray-100 min-h-screen">
-                <Header/>
+                <Header />
                 <FirstSectionAbout
                     imageUrl={medical_team}
                     title="About Us"
@@ -27,18 +26,20 @@ const AboutUsPage = () => {
                     free time on a volunteer basis. Before starting work on the platform, all doctors provide
                     information about their valid licenses, diplomas, and certificates."
                 />
-                <SecondSection ourGoalImage={our_goal} ourMissionImage={our_mission}/>
-                <ThirdSection imageUrl={table}
-                              title="Principles"
-                              description=" We call on doctors to provide as many free medical consultations as possible
+                <SecondSection ourGoalImage={our_goal} ourMissionImage={our_mission} />
+                <ThirdSection
+                    imageUrl={table}
+                    title="Principles"
+                    description=" We call on doctors to provide as many free medical consultations as possible
                                to the population, as this, in our opinion, is currently a socially responsible task of
-                               state importance."/>
-                <ServiceAboutUs/>
+                               state importance."
+                />
+                <ServiceAboutUs />
                 <div className="bg-violet-100">
-                    <TeamAboutUs/>
-                    <ReviewsAboutUs/>
+                    <TeamAboutUs />
+                    <ReviewsAboutUs />
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         </>
     );

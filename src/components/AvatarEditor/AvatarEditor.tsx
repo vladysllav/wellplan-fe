@@ -1,5 +1,5 @@
-import React, { useRef, useState} from 'react';
-import {toast} from 'react-toastify';
+import React, { useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 import default_avatar from '../../assets/images/default_avatar.png';
 
 interface AvatarEditorProps {
@@ -19,11 +19,11 @@ const AvatarEditor: React.FC<AvatarEditorProps> = ({ srcIcon, onImageUpload }) =
         const selectedImage = e.target?.files?.[0];
         if (selectedImage) {
             if (!ALLOWED_FILE_TYPES.includes(selectedImage.type)) {
-                toast.error("Accepted formats: JPEG, JPG and PNG.");
+                toast.error('Accepted formats: JPEG, JPG and PNG.');
                 return;
             }
             if (selectedImage.size > MAX_FILE_SIZE) {
-                toast.error("The file is too large. Maximum size: 2MB.");
+                toast.error('The file is too large. Maximum size: 2MB.');
                 return;
             }
 
@@ -38,9 +38,7 @@ const AvatarEditor: React.FC<AvatarEditorProps> = ({ srcIcon, onImageUpload }) =
     };
 
     return (
-        <div className="relative"
-             onMouseEnter={() => setHovered(true)}
-             onMouseLeave={() => setHovered(false)}>
+        <div className="relative" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <img
                 src={avatar}
                 alt="avatar"

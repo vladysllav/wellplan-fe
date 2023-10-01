@@ -1,7 +1,7 @@
-import logo from "../../assets/images/logo.png";
-import Navigation from "../../components/Footer/Navigation";
-import Policies from "../../components/Footer/Policies";
-import Links from "../../components/Footer/Links";
+import logo from '../../assets/images/logo.png';
+import Navigation from '../../components/Footer/Navigation';
+import Policies from '../../components/Footer/Policies';
+import Links from '../../components/Footer/Links';
 
 const Footer = () => {
     return (
@@ -11,7 +11,7 @@ const Footer = () => {
                     src={logo}
                     alt="Healthcare logo"
                     className="mx-auto"
-                    style={{ maxWidth: "300px", height: "auto" }}
+                    style={{ maxWidth: '300px', height: 'auto' }}
                 />
             </div>
             <div className="lg:w-1/4 w-full lg:text-left text-center">

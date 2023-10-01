@@ -1,4 +1,4 @@
-import {DoctorModel} from '../models/doctor.model';
+import { DoctorModel } from '../models/doctor.model';
 
 export const dummyDoctorsList: DoctorModel[] = [
     {
@@ -6,13 +6,13 @@ export const dummyDoctorsList: DoctorModel[] = [
         fullName: 'Marshal Greg',
         image: '',
         email: 'example@gmail.com',
-        city: "Toronto, Canada",
+        city: 'Toronto, Canada',
         yearsOfExperience: 4,
         specialization: 'Podologia',
         bio: 'You will study online with practical learning, projects, and real-time research with Google G-Suite for Education, alongside 80 million educators and students worldwide. alongside 80 million educators and students worldwide. alongside 80 million educators and students worldwide. alongside 80 million educators and students worldwide. alongside 80 million educators and students worldwide. alongside 80 million educators and students worldwide',
         reviews: {
             averageRating: 1.3,
-            numberOfReviews: 100
+            numberOfReviews: 100,
         },
     },
     {
@@ -20,13 +20,13 @@ export const dummyDoctorsList: DoctorModel[] = [
         fullName: 'Marshal Greg',
         image: '',
         email: 'example@gmail.com',
-        city: "Toronto, Canada",
+        city: 'Toronto, Canada',
         yearsOfExperience: 4,
         specialization: 'Intern',
         bio: 'You will study online with practical learning, projects, and real-time research with Google G-Suite for Education, alongside 80 million educators and students worldwide.',
         reviews: {
             averageRating: 4.87,
-            numberOfReviews: 182
+            numberOfReviews: 182,
         },
     },
     {
@@ -34,13 +34,13 @@ export const dummyDoctorsList: DoctorModel[] = [
         fullName: 'Marshal Greg',
         image: '',
         email: 'example@gmail.com',
-        city: "Toronto, Canada",
+        city: 'Toronto, Canada',
         yearsOfExperience: 4,
         specialization: 'Allergic',
         bio: 'You will study online with practical learning, projects, and real-time research with Google G-Suite for Education, alongside 80 million educators and students worldwide.',
         reviews: {
             averageRating: 3.21,
-            numberOfReviews: 54
+            numberOfReviews: 54,
         },
-    }
-]
+    },
+];

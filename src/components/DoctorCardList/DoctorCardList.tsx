@@ -1,9 +1,9 @@
-import {useEffect, useMemo, useState} from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Search from '../Search/Search';
 import useDebounce from '../../hooks/useDebounce';
 import DoctorCard from '../DoctorCard/DoctorCard';
-import {dummyDoctorsList} from '../../data/dummyDoctorsList';
-import {DoctorModel} from '../../models/doctor.model';
+import { dummyDoctorsList } from '../../data/dummyDoctorsList';
+import { DoctorModel } from '../../models/doctor.model';
 
 const DoctorCardList = () => {
     const [doctors, setDoctors] = useState<DoctorModel[]>([]);
@@ -19,7 +19,7 @@ const DoctorCardList = () => {
     }, []);
 
     const filteredDoctors = useMemo(() => {
-        setIfFiltering(true)
+        setIfFiltering(true);
         return doctors.filter((doctor) => {
             const fullName = doctor.fullName.toLowerCase();
             const specialization = doctor.specialization.toLowerCase();
@@ -55,9 +55,13 @@ const DoctorCardList = () => {
                         ) : (
                             <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 {filteredDoctors.map((doctor: DoctorModel) => (
-                                    <div key={doctor.id}
-                                         className={`w-full transition-opacity duration-700 ease-in-out ${isFiltering ? 'opacity-0' : 'opacity-100'}`}>
-                                        <DoctorCard doctor={doctor}/>
+                                    <div
+                                        key={doctor.id}
+                                        className={`w-full transition-opacity duration-700 ease-in-out ${
+                                            isFiltering ? 'opacity-0' : 'opacity-100'
+                                        }`}
+                                    >
+                                        <DoctorCard doctor={doctor} />
                                     </div>
                                 ))}
                             </div>

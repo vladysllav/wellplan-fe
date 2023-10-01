@@ -54,6 +54,30 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### Running ESLint
+
+To run ESLint and check your code for errors or style issues, use the following command:
+
+### `npm run lint`
+
+ESLint will analyze your JavaScript and TypeScript files and report any problems or inconsistencies. You can find the ESLint configuration in the .eslintrc.js file.
+
+### Running Prettier
+
+To format your code using Prettier, use the following command:
+
+### `npm run format`
+
+Prettier will automatically format your code according to the rules specified in the .prettierrc configuration file.
+
+### Modifying ESLint and Prettier Configuration
+If you want to change the ESLint or Prettier configuration, you can do so by editing the respective configuration files:
+
+- ESLint Configuration: .eslintrc.js
+- Prettier Configuration: .prettierrc
+
+Make your desired changes to these files, save them, and then run the relevant ESLint or Prettier command to apply the updated configuration.
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**

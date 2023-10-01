@@ -1,5 +1,5 @@
 import logo from '../../assets/images/logo.png';
-import {Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const navigate = useNavigate();
@@ -12,11 +12,7 @@ const Header = () => {
         <div className="bg-indigo-900 text-white">
             <nav className="mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:px-8">
                 <div className="lg:w-1/4 w-full flex items-center justify-center">
-                    <img
-                        src={logo}
-                        alt="Healthcare logo"
-                        className="mx-auto max-w-[130px]"
-                    />
+                    <img src={logo} alt="Healthcare logo" className="mx-auto max-w-[130px]" />
                 </div>
 
                 <div className="w-full flex items-center justify-center lg:justify-between">
@@ -41,8 +37,9 @@ const Header = () => {
 
                 <div className="lg:w-1/4 w-full flex items-center justify-center lg:justify-end">
                     <Link to="/user-profile">
-                        <span className="main-menu-item"
-                        > {/* TODO get user name and surname */}
+                        <span className="main-menu-item">
+                            {' '}
+                            {/* TODO get user name and surname */}
                             User name
                         </span>
                     </Link>
@@ -52,7 +49,7 @@ const Header = () => {
                         style={{
                             backgroundColor: '#F8E8EA',
                             color: '#18172B',
-                            borderRadius: '8px'
+                            borderRadius: '8px',
                         }}
                         onClick={handleLoginClick}
                     >
@@ -66,7 +63,8 @@ const Header = () => {
 
 export default Header;
 
-{/* {/* const Header = () => {
+{
+    /* {/* const Header = () => {
  return (
  <div className="bg-indigo-900 text-white">
  <nav className="mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:px-8">
@@ -120,7 +118,8 @@ export default Header;
  export default Header; */
 }
 
-{/* // import React, { useState, Fragment } from "react";
+{
+    /* // import React, { useState, Fragment } from "react";
 
  // import logo from "../../assets/images/logo.png";
  // import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";

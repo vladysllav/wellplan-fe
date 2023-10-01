@@ -1,6 +1,6 @@
-import {ReviewModel} from '../../models/doctor.model';
+import { ReviewModel } from '../../models/doctor.model';
 
-const Review = ({ review, path = '#' }: { review: ReviewModel, path?: string }) => {
+const Review = ({ review, path = '#' }: { review: ReviewModel; path?: string }) => {
     const { averageRating, numberOfReviews } = review;
 
     const integerPart = Math.floor(averageRating);
@@ -10,7 +10,9 @@ const Review = ({ review, path = '#' }: { review: ReviewModel, path?: string }) 
 
     for (let i = 0; i < integerPart; i++) {
         starIcons.push(
-            <span key={i} className="text-yellow-500">&#9733;</span>
+            <span key={i} className="text-yellow-500">
+                &#9733;
+            </span>,
         );
     }
 
@@ -18,21 +20,23 @@ const Review = ({ review, path = '#' }: { review: ReviewModel, path?: string }) 
         const fractionalWidth = `${fractionalPart * 100}%`;
         starIcons.push(
             <span key="fractional-star" className="relative">
-        <span
-            className="absolute top-0 left-0 w-full h-full overflow-hidden"
-            style={{ width: fractionalWidth }}
-        >
-          <span className="text-yellow-500">&#9733;</span>
-        </span>
-        <span className="text-yellow-500">&#9733;</span>
-      </span>
+                <span
+                    className="absolute top-0 left-0 w-full h-full overflow-hidden"
+                    style={{ width: fractionalWidth }}
+                >
+                    <span className="text-yellow-500">&#9733;</span>
+                </span>
+                <span className="text-yellow-500">&#9733;</span>
+            </span>,
         );
     }
 
     const totalStars = 5;
     while (starIcons.length < totalStars) {
         starIcons.push(
-            <span key={starIcons.length} className="text-gray-300">&#9733;</span>
+            <span key={starIcons.length} className="text-gray-300">
+                &#9733;
+            </span>,
         );
     }
 

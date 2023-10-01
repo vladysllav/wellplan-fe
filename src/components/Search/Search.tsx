@@ -20,7 +20,8 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
                 placeholder="Search by name or specialization"
                 className="w-full px-4 py-2 pl-10 pr-8 border rounded-md shadow-sm focus:outline-none focus:ring-1 focus:border-violet-700"
                 value={searchQuery}
-                onChange={handleSearchChange}/>
+                onChange={handleSearchChange}
+            />
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <i className="fas fa-search text-gray-400"></i>
             </div>
@@ -39,7 +40,3 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
 };
 
 export default Search;
-
-
-
-
