@@ -25,3 +25,10 @@
     peer-focus:after:border-r-2 peer-focus:after:border-indigo-500 peer-disabled:text-transparent
     peer-disabled:before:border-transparent peer-disabled:after:border-transparent
 }
+
+.about_link {
+    @apply px-4 py-3 text-blue-700 transition-all transform border border-blue-500
+    rounded-3xl hover:bg-blue-600 dark:border-blue-400 dark:hover:bg-blue-500
+    dark:hover:text-gray-100 dark:hover:border-blue-500 dark:text-blue-400
+    hover:text-gray-100
+}
