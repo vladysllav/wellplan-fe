@@ -1,5 +1,5 @@
 import React, { useRef, useState} from 'react';
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import default_avatar from '../../assets/images/default_avatar.png';
 
 interface AvatarEditorProps {

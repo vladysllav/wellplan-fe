@@ -1,4 +1,24 @@
-# Getting Started with Create React App
+# WellPlan: Healthcare Appointment Management System
+
+WellPlan is a Healthcare Appointment Management System designed to streamline the process of booking, rescheduling, and managing appointments with healthcare providers. This platform aims to modernize the patient experience while also simplifying administrative tasks for medical offices.
+
+## Installation and Usage
+
+### Run app by docker
+
+In the project directory, you can run:
+
+### `docker-compose up`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### OR run app on your local machine
+Here's how to get the project up and running on your local machine for development and testing.
+
 node version - v16.17.1
 
 To setup this project please use:
