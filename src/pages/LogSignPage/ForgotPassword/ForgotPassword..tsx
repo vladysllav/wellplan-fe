@@ -8,6 +8,7 @@ import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
 import useCustomFormValidation from '../../../hooks/customFormLogin';
 import '../../../assets/styles/Tailwind.css'
+
 const ForgotPassword: React.FC = () => {
 
   const formik = useFormik({

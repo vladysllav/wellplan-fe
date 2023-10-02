@@ -11,12 +11,9 @@ import {useNavigate} from "react-router-dom";
 import useCustomFormValidation from '../../../hooks/customFormLogin';
 
 
-interface FormProps {
-    className?: string;
-  }
 
 
-const NewPage: React.FC<FormProps> = () => {
+const NewPage: React.FC = () => {
     const navigate = useNavigate();
 
     const formik = useFormik({

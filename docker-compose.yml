@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  client:
+    container_name: react-app-c
+    image: react-app-i
+    build:
+      context: ./
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app  # Map the local directory to /app in the container
+      - /app/node_modules
