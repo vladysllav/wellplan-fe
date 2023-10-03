@@ -19,6 +19,7 @@ function AddDoctorForm() {
     "Dentist",
     "Psychiatrist",
   ];
+
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -51,7 +52,7 @@ function AddDoctorForm() {
       console.log(values);
       setShowSuccessMessage(true);
       formik.resetForm();
-    
+      
       toast.success('The doctor card has been successfully created!', {
         position: "top-right",
         autoClose: 3000,
@@ -210,6 +211,7 @@ function AddDoctorForm() {
       </form>
     </div>
   );
-}
+};
+
 
 export default AddDoctorForm;
