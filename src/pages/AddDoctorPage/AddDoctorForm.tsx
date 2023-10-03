@@ -2,12 +2,24 @@ import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-interface FormProps {
-  className?: string;
-}
+function AddDoctorForm() {
+  const specializations = [
+    "Select Specialization",
+    "Ophthalmologist",
+    "Surgeon",
+    "Cardiologist",
+    "Dermatologist",
+    "Pediatrician",
+    "Gynecologist",
+    "Neurologist",
+    "Orthopedic Surgeon",
+    "Dentist",
+    "Psychiatrist",
+  ];
 
-const AddDoctorForm: React.FC<FormProps> = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -40,6 +52,15 @@ const AddDoctorForm: React.FC<FormProps> = () => {
       console.log(values);
       setShowSuccessMessage(true);
       formik.resetForm();
+      
+      toast.success('The doctor card has been successfully created!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     },
   });
   useEffect(() => {
@@ -52,15 +73,12 @@ const AddDoctorForm: React.FC<FormProps> = () => {
   }, [showSuccessMessage]);
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <h2 className="text-2xl mb-4 pt-5 font-semibold text-indigo-900">
+    <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h2 className="text-2xl mb-4 font-semibold text-indigo-900">
         Add doctor
       </h2>
-      <form
-        onSubmit={formik.handleSubmit}
-        className="max-w-lg mx-auto space-y-4"
-      >
-        <div className="relative h-10 w-full min-w-[200px] mt-5">
+      <form onSubmit={formik.handleSubmit} className="space-y-4">
+        <div className="relative">
           <input
             className="input-field peer my_input"
             placeholder=" "
@@ -76,10 +94,10 @@ const AddDoctorForm: React.FC<FormProps> = () => {
         {formik.touched.firstName && formik.errors.firstName ? (
           <div className="text-red-500">{formik.errors.firstName}</div>
         ) : null}
-        <div className="relative h-10 w-full min-w-[200px] mt-5">
+        <div className="relative">
           <input
-            className="input-field peer my_input"
             placeholder=" "
+            className="input-field peer my_input"
             id="lastName"
             name="lastName"
             type="text"
@@ -92,7 +110,7 @@ const AddDoctorForm: React.FC<FormProps> = () => {
         {formik.touched.lastName && formik.errors.lastName ? (
           <div className="text-red-500">{formik.errors.lastName}</div>
         ) : null}
-        <div className="relative h-10 w-full min-w-[200px] mt-5">
+        <div className="relative">
           <select
             id="specialization"
             name="specialization"
@@ -101,17 +119,9 @@ const AddDoctorForm: React.FC<FormProps> = () => {
             value={formik.values.specialization}
             className="appearance-none w-full h-full pl-3 pr-8 bg-transparent border border-gray-300 rounded my_input"
           >
-            <option value="" label="Select Specialization" />
-            <option value="Ophthalmologist" label="Ophthalmologist" />
-            <option value="Surgeon" label="Surgeon" />
-            <option value="Cardiologist" label="Cardiologist" />
-            <option value="Dermatologist" label="Dermatologist" />
-            <option value="Pediatrician" label="Pediatrician" />
-            <option value="Gynecologist" label="Gynecologist" />
-            <option value="Neurologist" label="Neurologist" />
-            <option value="Orthopedic Surgeon" label="Orthopedic Surgeon" />
-            <option value="Dentist" label="Dentist" />
-            <option value="Psychiatrist" label="Psychiatrist" />
+            {specializations.map((specialization, index) => (
+              <option key={index} value={specialization} label={specialization} />
+            ))}
           </select>
           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
             <svg
@@ -132,7 +142,7 @@ const AddDoctorForm: React.FC<FormProps> = () => {
         {formik.touched.specialization && formik.errors.specialization ? (
           <div className="text-red-500">{formik.errors.specialization}</div>
         ) : null}
-        <div className="relative h-10 w-full min-w-[200px] mt-5">
+        <div className="relative">
           <input
             className="input-field peer my_input"
             id="yearsOfExperience"
@@ -147,7 +157,7 @@ const AddDoctorForm: React.FC<FormProps> = () => {
         {formik.touched.yearsOfExperience && formik.errors.yearsOfExperience ? (
           <div className="text-red-500">{formik.errors.yearsOfExperience}</div>
         ) : null}
-        <div className="relative h-10 w-full min-w-[200px] mt-5">
+        <div className="relative">
           <input
             className="input-field peer my_input"
             id="picture"
@@ -165,7 +175,7 @@ const AddDoctorForm: React.FC<FormProps> = () => {
         {formik.touched.picture && formik.errors.picture ? (
           <div className="text-red-500">{formik.errors.picture}</div>
         ) : null}
-        <div className="relative mt-5">
+        <div className="relative">
           <textarea
             className="input-field peer my_input"
             id="description"
@@ -202,5 +212,6 @@ const AddDoctorForm: React.FC<FormProps> = () => {
     </div>
   );
 };
+
 
 export default AddDoctorForm;

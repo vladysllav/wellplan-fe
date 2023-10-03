@@ -10,9 +10,10 @@ import ForgotPassword from "./pages/LogSignPage/ForgotPassword/ForgotPassword.";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import Terms from "./pages/Terms/Terms";
-import AddDoctorPage from "./pages/AddDoctorPage/AddDoctorPage";
 import SignupPage from "./pages/LogSignPage/SignupPage";
 import LoginPage from "./pages/LogSignPage/LoginPage";
+import AddDoctorPage from "./pages/AddDoctorPage/AddDoctorPage";
+
 
 function App() {
     const dispatch = useDispatch<AppDispatch>();
