@@ -23,9 +23,11 @@ const Footer = () => {
             <div className="lg:w-1/4 w-full lg:text-left text-center">
                 <Links />
             </div>
-            <p className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-white">
-                © 2023 Healthcare. All rights reserved.
-            </p>
+            <div className="flex justify-center items-center">
+  <p>
+    © 2023 Healthcare. All rights reserved.
+  </p>
+</div>
         </div>
     );
 };

@@ -1,19 +1,19 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import HomePage from '../src/pages/HomePage/HomePage';
-import { AppDispatch, fetchData } from '../src/store/actions/dataActions';
-import './App.css';
-import { RootState } from './store/index';
-import NewPage from '../src/pages/NewPage/NewPage';
-import { Route, Routes } from 'react-router-dom';
-import RegistrationForm from './pages/LogSignPage/RegistrationForm/RegistrationForm';
-import AuthorizationForm from './pages/LogSignPage/AuthorizationForm/AuthorizationForm';
-import ForgotPassword from './pages/LogSignPage/ForgotPassword/ForgotPassword.';
-import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
-import UserProfile from './pages/UserProfile/UserProfile';
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import { AppDispatch, fetchData } from "../src/store/actions/dataActions";
+import "./App.css";
+import { RootState } from "./store/index";
+import NewPage from "../src/pages/NewPage/NewPage";
+import { Route, Routes } from "react-router-dom";
+import ForgotPassword from "./pages/LogSignPage/ForgotPassword/ForgotPassword.";
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import UserProfile from "./pages/UserProfile/UserProfile";
+import Terms from "./pages/Terms/Terms";
+import SignupPage from "./pages/LogSignPage/SignupPage";
+import LoginPage from "./pages/LogSignPage/LoginPage";
+import AddDoctorPage from "./pages/AddDoctorPage/AddDoctorPage";
+import HomePage from './pages/HomePage/HomePage';
 
-import Terms from './pages/Terms/Terms';
-import LogSignPage from './pages/LogSignPage/LogSignPage';
 
 function App() {
     const dispatch = useDispatch<AppDispatch>();
@@ -34,15 +34,15 @@ function App() {
             {/* Define routes */}
             <main>
                 <Routes>
-                    <Route path="/login" element={<AuthorizationForm />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/registration" element={<SignupPage />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />
-                    <Route path="/signin" element={<RegistrationForm />} />
                     <Route path="/about" element={<AboutUsPage />} />
                     <Route path="/user-profile" element={<UserProfile />} />
                     <Route path="/new" element={<NewPage />} />
                     <Route path="/" element={<HomePage />} />
                     <Route path="/terms" element={<Terms />} />
-                    <Route path="/logSign" element={<LogSignPage />} />
+                    <Route path="/add-doctor" element={<AddDoctorPage />} />
                 </Routes>
             </main>
         </div>
