@@ -1,7 +1,7 @@
-import DoctorCardList from "../../components/DoctorCardList/DoctorCardList";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
-import { Link } from "react-router-dom"; 
+import DoctorCardList from '../../components/DoctorCardList/DoctorCardList';
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
+import { Link } from "react-router-dom";
 
 const HomePage: React.FC = () => {
     return (

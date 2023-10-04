@@ -4,6 +4,6 @@ export interface User {
     email: string;
     role: 'admin' | 'user';
     // ... other fields
- }
- 
- export type Theme = 'light' | 'dark';
+}
+
+export type Theme = 'light' | 'dark';

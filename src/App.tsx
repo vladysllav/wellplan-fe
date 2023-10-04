@@ -1,6 +1,5 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import HomePage from "../src/pages/HomePage/HomePage";
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import { AppDispatch, fetchData } from "../src/store/actions/dataActions";
 import "./App.css";
 import { RootState } from "./store/index";
@@ -13,15 +12,14 @@ import Terms from "./pages/Terms/Terms";
 import SignupPage from "./pages/LogSignPage/SignupPage";
 import LoginPage from "./pages/LogSignPage/LoginPage";
 import AddDoctorPage from "./pages/AddDoctorPage/AddDoctorPage";
+import HomePage from './pages/HomePage/HomePage';
 
 
 function App() {
     const dispatch = useDispatch<AppDispatch>();
 
     const data = useSelector((state: RootState) => state.yourStateSlice.data);
-    const loading = useSelector(
-        (state: RootState) => state.yourStateSlice.loading
-    );
+    const loading = useSelector((state: RootState) => state.yourStateSlice.loading);
     const error = useSelector((state: RootState) => state.yourStateSlice.error);
 
     useEffect(() => {
@@ -30,7 +28,7 @@ function App() {
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
-    console.log(data, "data");
+    console.log(data, 'data');
     return (
         <div className="App">
             {/* Define routes */}
@@ -40,7 +38,7 @@ function App() {
                     <Route path="/registration" element={<SignupPage />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/about" element={<AboutUsPage />} />
-                    <Route path="/user-profile" element={<UserProfile/>}/>
+                    <Route path="/user-profile" element={<UserProfile />} />
                     <Route path="/new" element={<NewPage />} />
                     <Route path="/" element={<HomePage />} />
                     <Route path="/terms" element={<Terms />} />

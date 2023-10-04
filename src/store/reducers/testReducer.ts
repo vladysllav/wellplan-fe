@@ -1,7 +1,7 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE } from '../actions/actionTypes';
 
 type State = {
-    data: []; 
+    data: [];
     loading: boolean;
     error: null | string;
 };
@@ -9,12 +9,12 @@ type State = {
 const initialState: State = {
     data: [],
     loading: false,
-    error: null
+    error: null,
 };
 
 type Action = {
     type: string;
-    payload?: any;  
+    payload?: any;
 };
 
 const testReducer = (state = initialState, action: Action): State => {

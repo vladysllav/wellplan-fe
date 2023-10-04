@@ -13,4 +13,4 @@ export interface DoctorModel {
 export type ReviewModel = {
     averageRating: number;
     numberOfReviews: number;
-}
+};

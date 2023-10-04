@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import testReducer from './reducers/testReducer';
 
 const rootReducer = combineReducers({
-  yourStateSlice: testReducer,
+    yourStateSlice: testReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
