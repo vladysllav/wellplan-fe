@@ -1,14 +1,13 @@
-
 import '../../../assets/styles/Tailwind.css';
-import {useFormik} from "formik";
+import axios from 'axios';
+import {FormikValues, useFormik} from 'formik';
 import * as yup from "yup";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Button from '../../../components/Button/Button';
-import {ToastContainer} from 'react-toastify';
+import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {useNavigate} from "react-router-dom";
-import useCustomFormValidation from '../../../hooks/customFormLogin';
 
 
 
@@ -22,7 +21,6 @@ const NewPage: React.FC = () => {
             lastName: '',
             email: '',
             password: '',
-            //userType: '',
             date_of_birth: null
         },
         validationSchema: yup.object({
@@ -39,23 +37,36 @@ const NewPage: React.FC = () => {
                 .min(8, 'Password must be at least 8 characters long')
                 .max(15, 'Password cannot exceed 15 characters')
                 .matches(/^[a-zA-Z0-9]+$/, 'Password cannot contain special characters'),
-            //userType: yup.string()
-                //.oneOf(['admin', 'client'], 'Invalid user type')
-               // .required('Required'),
             date_of_birth: yup.date().nullable().required('Required')
         }),
 
-        onSubmit: values => {
-            console.log('Form data', values);
-            navigate("/")
-        }
+        onSubmit: () => {
+            signUp(formik, 'Please fix the form errors before submitting.', sendRequest);
+        },
     });
 
-    const handleFormValidation = useCustomFormValidation(
-        "Please fix the form errors before submitting.",
-        true,
-        "/"
-    );
+    const signUp = (formik: FormikValues, errorMessage = 'Please fix the form errors before submitting.', fnAfterValid?: () => void) => {
+        if (!formik.isValid) {
+            toast.error(errorMessage);
+            return;
+        }
+        fnAfterValid && fnAfterValid();
+    };
+
+    const sendRequest = () => {
+        axios.post('http://localhost:8000/api/auth/sign-up', {
+            first_name: formik.values.firstName,
+            last_name: formik.values.lastName,
+            email: formik.values.email,
+            password: formik.values.password,
+            date_of_birth: formik.values.date_of_birth,
+        }).then((response) => {
+            console.log(response);
+            navigate('/');
+        }).catch(() => {
+            toast.error('Something was wrong.');
+        });
+    };
 
     return (
         <div>
@@ -160,11 +171,7 @@ const NewPage: React.FC = () => {
                     ) : null
                 }
                 <div className="mt-4 pb-5">
-                    <Button label="Submit" type="submit"
-                            onClick={() => handleFormValidation(formik,
-                                "Please fix the form errors before submitting",
-                                "/")}
-                    />
+                    <Button label="Submit" type="submit"/>
                 </div>
             </form>
 

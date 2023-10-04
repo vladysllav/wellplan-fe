@@ -34,10 +34,9 @@ function ReviewsAboutUs () {
                             </p>
                         </blockquote>
                         <figcaption className="flex justify-center items-center space-x-3">
-                            <img
-                                className="w-9 h-9 rounded-full"
-                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png"
-                                alt="profile picture"
+                            <img className="w-9 h-9 rounded-full"
+                                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png"
+                                 alt="profile picture"
                             />
                             <div className="space-y-0.5 font-medium dark:text-white text-left">
                                 <div>Bonnie Green</div>
