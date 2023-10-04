@@ -1,8 +1,8 @@
 import Review from '../Review/Review';
-import {DoctorModel} from '../../models/doctor.model';
+import { DoctorModel } from '../../models/doctor.model';
 import default_avatar from '../../assets/images/default_avatar.png';
 
-const DoctorCard = ({doctor}: {doctor: DoctorModel}) => {
+const DoctorCard = ({ doctor }: { doctor: DoctorModel }) => {
     return (
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
             <div className="p-8 flex items-center justify-center">
@@ -16,8 +16,7 @@ const DoctorCard = ({doctor}: {doctor: DoctorModel}) => {
                 <div className="flex flex-col gap-0.5">
                     <div>
                         <div className="flex flex-col">
-                            <a href="/doctor/id/detail"
-                               className="text-start">
+                            <a href="/doctor/id/detail" className="text-start">
                                 <h5 className="text-xl font-semibold tracking-tight text-gray-900">
                                     {doctor.fullName}
                                 </h5>
@@ -31,8 +30,7 @@ const DoctorCard = ({doctor}: {doctor: DoctorModel}) => {
                         </div>
                     </div>
 
-                    <Review review={doctor.reviews}
-                            path="/review"/>
+                    <Review review={doctor.reviews} path="/review" />
                 </div>
 
                 <div className="bio overflow-hidden line-clamp-3 sm:line-clamp-5 md:line-clamp-7 lg:line-clamp-10">

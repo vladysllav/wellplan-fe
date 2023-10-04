@@ -39,7 +39,7 @@ const UserProfile: React.FC = () => {
     const formik = useFormik({
         initialValues,
         validationSchema,
-        onSubmit: (values) => {
+        onSubmit: () => {
             updatedUserProfileInformation();
         },
     });
