@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useFormik } from "formik";
+import {useFormik} from "formik";
 import * as yup from "yup";
-import "react-datepicker/dist/react-datepicker.css";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
+import "react-datepicker/dist/react-datepicker.css";
 
 function AddDoctorForm() {
   const specializations = [
@@ -52,8 +53,8 @@ function AddDoctorForm() {
       console.log(values);
       setShowSuccessMessage(true);
       formik.resetForm();
-      
-      toast.success('The doctor card has been successfully created!', {
+
+      toast.success("The doctor card has been successfully created!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -71,6 +72,50 @@ function AddDoctorForm() {
       return () => clearTimeout(timeout);
     }
   }, [showSuccessMessage]);
+
+  const handleSubmit = async (values: any) => {
+    try {
+      const response = await axios.post("/api/doctors/doctors/", values);
+
+      if (response.status === 201) {
+        setShowSuccessMessage(true);
+        formik.resetForm();
+
+        toast.success("The doctor card has been successfully created!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      } else {
+        const errorMessages = {
+          firstName: "Received an unknown response status: " + response.status,
+          lastName: "",
+          specialization: "",
+          yearsOfExperience: "",
+          picture: "",
+          description: "",
+        };
+
+        formik.setErrors(errorMessages);
+      }
+    } catch (error) {
+      const errorMessages = {
+        firstName:
+          "Error occurred while making the request: " +
+          (error as Error).message,
+        lastName: "",
+        specialization: "",
+        yearsOfExperience: "",
+        picture: "",
+        description: "",
+      };
+
+      formik.setErrors(errorMessages);
+    }
+  };
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -120,7 +165,11 @@ function AddDoctorForm() {
             className="appearance-none w-full h-full pl-3 pr-8 bg-transparent border border-gray-300 rounded my_input"
           >
             {specializations.map((specialization, index) => (
-              <option key={index} value={specialization} label={specialization} />
+              <option
+                key={index}
+                value={specialization}
+                label={specialization}
+              />
             ))}
           </select>
           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -211,7 +260,6 @@ function AddDoctorForm() {
       </form>
     </div>
   );
-};
-
+}
 
 export default AddDoctorForm;

@@ -13,6 +13,7 @@ import Terms from "./pages/Terms/Terms";
 import SignupPage from "./pages/LogSignPage/SignupPage";
 import LoginPage from "./pages/LogSignPage/LoginPage";
 import AddDoctorPage from "./pages/AddDoctorPage/AddDoctorPage";
+import AllDoctorsPage from "./pages/AllDoctorsPage/AllDoctorsPage";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/terms" element={<Terms />} />
                     <Route path="/add-doctor" element={<AddDoctorPage />} />
+                    <Route path="/all-doctors" element={<AllDoctorsPage />} />
                 </Routes>
             </main>
         </div>
