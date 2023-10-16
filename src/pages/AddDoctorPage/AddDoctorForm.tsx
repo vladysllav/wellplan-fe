@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import 'react-datepicker/dist/react-datepicker.css';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
+import { API_BASE_URL } from '../../helpers/apiConstants';
+
+interface BaseDoctor {
+    first_name: string;
+    last_name: string;
+    experience: number;
+    email: string;
+    date_of_birth: Date;
+}
 
 function AddDoctorForm() {
     const specializations = [
@@ -20,14 +29,13 @@ function AddDoctorForm() {
         'Psychiatrist',
     ];
 
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const formik = useFormik({
         initialValues: {
-            firstName: '',
-            lastName: '',
-            specialization: '',
-            yearsOfExperience: '',
-            picture: null,
+            firstName: '123',
+            lastName: '123',
+            specialization: 'Dentist',
+            yearsOfExperience: 4,
+            picture: '123',
             description: '',
         },
         validationSchema: yup.object({
@@ -39,33 +47,26 @@ function AddDoctorForm() {
             description: yup.string(),
         }),
 
-        onSubmit: (values) => {
-            console.log(values);
-            setShowSuccessMessage(true);
-            formik.resetForm();
+        onSubmit: async (values) => {
+            try {
+                const result = await axios.post<BaseDoctor>(`${API_BASE_URL}/doctors/doctors/`, values);
 
-            toast.success('The doctor card has been successfully created!', {
-                position: 'top-right',
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+                if (result.status >= 200 && result.status < 300) {
+                    toast.success('The doctor card has been successfully created');
+                    formik.resetForm();
+                } else {
+                    toast.error(`Sorry, we couldn't add the doctor at this time. Please try again later.`);
+                }
+            } catch (error) {
+                toast.error(`Sorry, we couldn't add the doctor at this time. Please try again later.`);
+            }
         },
     });
-    useEffect(() => {
-        if (showSuccessMessage) {
-            const timeout = setTimeout(() => {
-                setShowSuccessMessage(false);
-            }, 3000);
-            return () => clearTimeout(timeout);
-        }
-    }, [showSuccessMessage]);
 
     return (
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
             <h2 className="text-2xl mb-4 font-semibold text-indigo-900">Add doctor</h2>
+            <ToastContainer />
             <form onSubmit={formik.handleSubmit} className="space-y-4">
                 <div className="relative">
                     <input
@@ -183,13 +184,6 @@ function AddDoctorForm() {
                         Save
                     </button>
                 </div>
-                {showSuccessMessage && (
-                    <div className="fixed inset-0 flex items-center justify-center z-50">
-                        <div className="bg-white p-4 rounded-lg shadow-lg">
-                            <p className="text-indigo-500">The doctor card has been successfully created!</p>
-                        </div>
-                    </div>
-                )}
             </form>
         </div>
     );
