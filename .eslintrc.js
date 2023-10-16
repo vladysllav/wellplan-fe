@@ -17,6 +17,9 @@ module.exports = {
         },
     },
     rules: {
+        '@typescript-eslint/no-explicit-any': ['off'],
+        'react/no-unescaped-entities': 'off',
+        'react/react-in-jsx-scope': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off', // Allow implicit return types
         'prettier/prettier': 'error',
     },

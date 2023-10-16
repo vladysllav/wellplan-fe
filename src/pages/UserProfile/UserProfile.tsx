@@ -59,7 +59,7 @@ const UserProfile: React.FC = () => {
                 bio: userProfile.bio,
             });
         }
-    }, [userProfile]);
+    }, [userProfile, formik]);
 
     const updatedUserProfileInformation = () => {
         if (isEditing && !formik.isValid) {
