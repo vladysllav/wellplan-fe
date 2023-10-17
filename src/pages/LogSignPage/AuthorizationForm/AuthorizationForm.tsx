@@ -69,15 +69,18 @@ const Login: React.FC = () => {
                     <div className="text-red-500">{formik.errors.password}</div>
                 ) : null}
                 <div>
-                        <Link className="text-lg font-semibold text-indigo-900 hover:text-indigo-500"
-                              to="/forgot-password">Forgot your password?</Link>
-                    </div>
+                    <Link className="text-lg font-semibold text-indigo-900 hover:text-indigo-500" to="/forgot-password">
+                        Forgot your password?
+                    </Link>
+                </div>
                 <div className="mt-4 pb-5">
-                    <Button label="Submit" type="submit"
-                            onClick={() => handleFormValidation(formik,
-                                "Please fix the form errors before submitting",
-                                "/")}/>
-
+                    <Button
+                        label="Submit"
+                        type="submit"
+                        onClick={() =>
+                            handleFormValidation(formik, 'Please fix the form errors before submitting', '/')
+                        }
+                    />
                 </div>
             </form>
         </div>

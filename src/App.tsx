@@ -1,19 +1,18 @@
-import {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import { AppDispatch, fetchData } from "../src/store/actions/dataActions";
-import "./App.css";
-import { RootState } from "./store/index";
-import NewPage from "../src/pages/NewPage/NewPage";
-import { Route, Routes } from "react-router-dom";
-import ForgotPassword from "./pages/LogSignPage/ForgotPassword/ForgotPassword.";
-import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
-import UserProfile from "./pages/UserProfile/UserProfile";
-import Terms from "./pages/Terms/Terms";
-import SignupPage from "./pages/LogSignPage/SignupPage";
-import LoginPage from "./pages/LogSignPage/LoginPage";
-import AddDoctorPage from "./pages/AddDoctorPage/AddDoctorPage";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, fetchData } from '../src/store/actions/dataActions';
+import './App.css';
+import { RootState } from './store/index';
+import NewPage from '../src/pages/NewPage/NewPage';
+import { Route, Routes } from 'react-router-dom';
+import ForgotPassword from './pages/LogSignPage/ForgotPassword/ForgotPassword.';
+import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
+import UserProfile from './pages/UserProfile/UserProfile';
+import Terms from './pages/Terms/Terms';
+import SignupPage from './pages/LogSignPage/SignupPage';
+import LoginPage from './pages/LogSignPage/LoginPage';
+import AddDoctorPage from './pages/AddDoctorPage/AddDoctorPage';
 import HomePage from './pages/HomePage/HomePage';
-
 
 function App() {
     const dispatch = useDispatch<AppDispatch>();

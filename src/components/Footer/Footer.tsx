@@ -24,10 +24,8 @@ const Footer = () => {
                 <Links />
             </div>
             <div className="flex justify-center items-center">
-  <p>
-    © 2023 Healthcare. All rights reserved.
-  </p>
-</div>
+                <p>© 2023 Healthcare. All rights reserved.</p>
+            </div>
         </div>
     );
 };

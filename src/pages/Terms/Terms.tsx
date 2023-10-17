@@ -21,7 +21,6 @@ const Terms = () => {
             setTimeout(() => {
                 setShowSuccessMessage(false);
             }, 3000);
-        } else {
         }
     };
 
